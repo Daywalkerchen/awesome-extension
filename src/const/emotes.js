@@ -1,3 +1,10 @@
+export const EMOTES_ALTERNATES = [
+    {
+        tag: "c8731aa4-b90f-4482 84c2-65b9be019cd5", // this may be a random person's name idk
+        url: "https://cdn.betterttv.net/emote/5ada077451d4120ea3918426/3x" // blobdance
+    }
+]
+
 export const EMOTES = [
     {
         tag: ":blobdance:",

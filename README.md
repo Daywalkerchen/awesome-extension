@@ -36,3 +36,7 @@ Currently only working in `<p/>` and `<a/>` tags.
 - 
 ### Since v1.0.2
 - `:couldyounot:`
+
+### Scheduled for next release
+- added optional alternates for some emotes make content on existing sites a bit more fun. This option can be enabled via the popout fun.
+<img src="doc/img/popout.png" width="128"/>
