@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Emote Extension",
+  "name": "Awesome Extension",
   "description": "Adds emotes to youtrack and gitea",
   "options_page": "options.html",
   "background": {
@@ -31,6 +31,7 @@
       ]
     }
   ],
+  "devtools_page": "devtools.html",
   "web_accessible_resources": [
     {
       "resources": [
