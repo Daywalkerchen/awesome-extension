@@ -4,6 +4,7 @@ import { EMOTES } from "../../../../const/emotes";
 // endregion
 
 export const replaceEmotes = () => {
+    console.log("[REPLACE_EMOTE] Entered function");
     const allParagraphs = document.getElementsByTagName("p");
 
     const array = [...allParagraphs];
@@ -17,6 +18,7 @@ export const replaceEmotes = () => {
     }
 
     replaceableElements.forEach(element => {
+        console.log("[REPLACE_EMOTE] Successfully found emote");
         const foundEmotes = EMOTES.filter(emote => element.innerText.includes(emote.tag));
 
         foundEmotes.forEach((emote) => {
