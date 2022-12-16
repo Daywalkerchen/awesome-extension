@@ -1,6 +1,6 @@
 // All configurable plugin-options
 const settingKeys = [
-    { key: "useEmotes", _default: false }
+    { key: "useEmotes", _default: false },
 ];
 
 const injectFunc = (fn) => {
