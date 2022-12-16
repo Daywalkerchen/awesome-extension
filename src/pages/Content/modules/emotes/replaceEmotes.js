@@ -6,8 +6,9 @@ import { EMOTES } from "../../../../const/emotes";
 export const replaceEmotes = () => {
     console.log("[REPLACE_EMOTE] Entered function");
     const allParagraphs = document.getElementsByTagName("p");
+    const allLinks = document.getElementsByTagName("a");
 
-    const array = [...allParagraphs];
+    const array = [...allParagraphs, ...allLinks];
 
     const replaceableElements = array.filter(element =>
       EMOTES.find((emote) => element.innerText.includes(emote.tag))
