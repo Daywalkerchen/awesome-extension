@@ -33,3 +33,6 @@ Currently only working in `<p/>` and `<a/>` tags.
 - `:vibebunny:`
 - `:discocat:`
 - `:kekw:`
+- 
+### Since v1.0.2
+- `:couldyounot:`

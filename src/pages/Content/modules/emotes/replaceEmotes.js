@@ -5,8 +5,13 @@ import { EMOTES } from "../../../../const/emotes";
 
 export const replaceEmotes = () => {
     console.log("[REPLACE_EMOTE] Entered function");
+
     const allParagraphs = document.getElementsByTagName("p");
     const allLinks = document.getElementsByTagName("a");
+
+    if (!allParagraphs.length && !allLinks.length) {
+        return;
+    }
 
     const array = [...allParagraphs, ...allLinks];
 
@@ -20,6 +25,7 @@ export const replaceEmotes = () => {
 
     replaceableElements.forEach(element => {
         console.log("[REPLACE_EMOTE] Successfully found emote");
+
         const foundEmotes = EMOTES.filter(emote => element.innerText.includes(emote.tag));
 
         foundEmotes.forEach((emote) => {
@@ -29,8 +35,8 @@ export const replaceEmotes = () => {
                         class="replaced-emote" 
                         style="background-image: url(${emote.url})"
                     >
-                    ${emote.tag}
-                </span>`
+                    replaced_emote
+                    </span>`
             );
         });
     });

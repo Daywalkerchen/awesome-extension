@@ -9,5 +9,7 @@
 ```
 
 ```json
-
+{
+  "devtools_page": "devtools.html"
+}
 ```
