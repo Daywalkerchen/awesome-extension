@@ -8,12 +8,23 @@ export const replaceEmotes = () => {
 
     const allParagraphs = document.getElementsByTagName("p");
     const allLinks = document.getElementsByTagName("a");
+    const allSpan = document.getElementsByTagName("span");
 
-    if (!allParagraphs.length && !allLinks.length) {
+    let array = [...allParagraphs, ...allLinks, ...allSpan];
+
+    if (!array.length) {
         return;
     }
 
-    const array = [...allParagraphs, ...allLinks];
+    array = array.filter((ele) => {
+        const {
+            childNodes
+        } = ele;
+
+        return [...childNodes].some((node) => {
+            return EMOTES.find((x) => node.textContent.includes(x.tag) && node.nodeType === Node.TEXT_NODE);
+        });
+    });
 
     const replaceableElements = array.filter(element =>
       EMOTES.find((emote) => element.innerText.includes(emote.tag))
@@ -31,12 +42,7 @@ export const replaceEmotes = () => {
         foundEmotes.forEach((emote) => {
             element.innerHTML = element.innerHTML.replaceAll(
               emote.tag,
-              `<span 
-                        class="replaced-emote" 
-                        style="background-image: url(${emote.url})"
-                    >
-                    replaced_emote
-                    </span>`
+              `<span class="replaced-emote"  style="background-image: url(${emote.url})">replaced_emote</span>`
             );
         });
     });
