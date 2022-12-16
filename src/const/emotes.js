@@ -50,5 +50,8 @@ export const EMOTES = [
     }, {
         tag: ":kekw:",
         url: "https://cdn.betterttv.net/emote/5e9c6c187e090362f8b0b9e8/3x"
+    }, {
+        tag: ":couldyounot:",
+        url: "https://cdn.betterttv.net/emote/572accb540dbc1cb345d782b/3x"
     }
 ];
