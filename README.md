@@ -12,7 +12,7 @@
 
 ## Replaced Emotes
 
-Currently only working in <p/> and <a/> tags.
+Currently only working in `<p/>` and `<a/>` tags.
 
 - `:blobdance:`
 - `:thisisfine:`
@@ -23,3 +23,13 @@ Currently only working in <p/> and <a/> tags.
 - `:suss:`
 - `:typingcat:`
 - `:amongus:`
+
+### Since v1.0.1
+- `:pressf:`
+- `:popcat:`
+- `:bongocat:`
+- `:charmander:`
+- `:noted:`
+- `:vibebunny:`
+- `:discocat:`
+- `:kekw:`
