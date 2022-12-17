@@ -1,6 +1,6 @@
 <div align="center">
     <h1>
-        <img src="src/assets/img/icon-128.png" width="128"/>
+        <img src="src/assets/img/icon-128.png" width="158" alt="logo"/>
     </h1>
     <h2>Awesome Extension</h2>
     <div>
@@ -10,9 +10,29 @@
     </div>
 </div>
 
-## Replaced Emotes
+### Scheduled for next release
 
-Currently only working in `<p/>` and `<a/>` tags.
+- Add optional alternates for some emotes to make content on existing sites a bit more fun. This option can be enabled
+  via the popout fun.
+
+<img src="doc/img/popout.png" width="302" alt="img"/>
+
+### Since v1.0.2
+
+- `:couldyounot:`
+
+### Since v1.0.1
+
+- `:pressf:`
+- `:popcat:`
+- `:bongocat:`
+- `:charmander:`
+- `:noted:`
+- `:vibebunny:`
+- `:discocat:`
+- `:kekw:`
+
+### Since v1.0.0
 
 - `:blobdance:`
 - `:thisisfine:`
@@ -23,20 +43,3 @@ Currently only working in `<p/>` and `<a/>` tags.
 - `:suss:`
 - `:typingcat:`
 - `:amongus:`
-
-### Since v1.0.1
-- `:pressf:`
-- `:popcat:`
-- `:bongocat:`
-- `:charmander:`
-- `:noted:`
-- `:vibebunny:`
-- `:discocat:`
-- `:kekw:`
-- 
-### Since v1.0.2
-- `:couldyounot:`
-
-### Scheduled for next release
-- added optional alternates for some emotes make content on existing sites a bit more fun. This option can be enabled via the popout fun.
-<img src="doc/img/popout.png" width="128"/>
