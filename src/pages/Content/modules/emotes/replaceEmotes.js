@@ -35,15 +35,15 @@ const replaceAlternateEmoteSet = () => {
   console.log('[REPLACE_ALTERNATES] Done function');
 };
 
-const defaultReplacementElementCandidates = () => {
-  const allParagraphs = document.getElementsByTagName('p');
-  const allLinks = document.getElementsByTagName('a');
-  const allSpan = document.getElementsByTagName('span');
+const isTextNode = (node) => node.nodeType === Node.TEXT_NODE;
 
-  return [...allParagraphs, ...allLinks, ...allSpan].filter((element) =>
-    [element, ...element.childNodes].some((node) =>
-      EMOTES.find((x) => node.textContent.includes(x.tag) && node.nodeType === Node.TEXT_NODE)
-    )
+const nodeContainsAnyTag = (node) => EMOTES.find((x) => node.textContent.includes(x.tag));
+
+const defaultReplacementElementCandidates = () => {
+  const allElements = document.querySelectorAll('span, a, p');
+
+  return [...allElements].filter((element) =>
+    [element, ...element.childNodes].some((node) => isTextNode(node) && nodeContainsAnyTag(node))
   );
 };
 
