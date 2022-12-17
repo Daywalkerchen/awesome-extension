@@ -25,11 +25,13 @@
     border-radius: 1.5rem;
     color: #0d172a;
     cursor: pointer;
-    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+      Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+      "Noto Color Emoji";
     font-size: 1.1rem;
     font-weight: 600;
     padding: 0.6rem 1.6rem;
-    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
     -webkit-user-select: none;
   }
@@ -47,15 +49,15 @@
   }
 
   @supports (-webkit-appearance: none) or (-moz-appearance: none) {
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       --active: #3445ce;
       --active-inner: #fff;
-      --focus: 2px rgba(39, 94, 254, .3);
-      --border: #BBC1E1;
-      --border-hover: #275EFE;
+      --focus: 2px rgba(39, 94, 254, 0.3);
+      --border: #bbc1e1;
+      --border-hover: #275efe;
       --background: #fff;
-      --disabled: #F6F8FF;
-      --disabled-inner: #E1E6F9;
+      --disabled: #f6f8ff;
+      --disabled-inner: #e1e6f9;
       -webkit-appearance: none;
       -moz-appearance: none;
       height: 21px;
@@ -67,29 +69,29 @@
       cursor: pointer;
       border: 1px solid var(--bc, var(--border));
       background: var(--b, var(--background));
-      transition: background .3s, border-color .3s, box-shadow .2s;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
 
       &:after {
-        content: '';
+        content: "";
         display: block;
         left: 0;
         top: 0;
         position: absolute;
-        transition: transform .3s ease, opacity .2s;
+        transition: transform 0.3s ease, opacity 0.2s;
       }
 
       &:checked {
         --b: var(--active);
         --bc: var(--active);
-        --d-o: .3s;
-        --d-t: .6s;
-        --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+        --d-o: 0.3s;
+        --d-t: 0.6s;
+        --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
       }
 
       &:disabled {
         --b: var(--disabled);
         cursor: not-allowed;
-        opacity: .9;
+        opacity: 0.9;
 
         &:checked {
           --b: var(--disabled-inner);
@@ -134,7 +136,7 @@
         margin-left: 4px;
       }
     }
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       &:not(.switch) {
         border-radius: 7px;
 
@@ -156,4 +158,3 @@
     }
   }
 }
-
