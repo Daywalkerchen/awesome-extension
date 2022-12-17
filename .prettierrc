@@ -1,6 +1,22 @@
 {
-  "singleQuote": true,
-  "trailingComma": "es5",
+  "arrowParens": "always",
+  "jsxBracketSameLine": true,
+  "printWidth": 100,
   "requirePragma": false,
-  "arrowParens": "always"
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": [
+        "**/*.css",
+        "**/*.scss",
+        "**/*.html"
+      ],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
 }

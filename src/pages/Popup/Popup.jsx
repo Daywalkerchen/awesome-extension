@@ -7,7 +7,7 @@ const Popup = () => {
   // Restores select box and checkbox state using the preferences
   // stored in chrome.storage.
   useEffect(() => {
-    chrome.storage.sync.get({ enableAlternates }, items => {
+    chrome.storage.sync.get({ enableAlternates }, (items) => {
       setEnableAlternates(items.enableAlternates);
       console.log(items.enableAlternates);
     });
@@ -34,15 +34,10 @@ const Popup = () => {
           checked={!!enableAlternates}
           onChange={handleChange}
         />
-        <label>
-          Enable alternate replacement tags
-        </label>
+        <label>Enable alternate replacement tags</label>
       </div>
       <div id="status"></div>
-      <button
-        className="button"
-        onClick={saveOptions}
-      >
+      <button className="button" onClick={saveOptions}>
         Save
       </button>
     </div>
