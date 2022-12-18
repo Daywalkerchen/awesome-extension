@@ -13,7 +13,7 @@ window.onload = () => {
   const throttledUpdate = (func) => {
     console.log('[CONTENT] MutationObserver detected change');
 
-    const nextCall = 5000 - (Date.now() - lastUpdate);
+    const nextCall = 2000 - (Date.now() - lastUpdate);
     clearTimeout(throttledTimeout);
 
     if (nextCall <= 0) {
