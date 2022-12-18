@@ -12,6 +12,10 @@ export const replaceEmotes = () => {
   );
 };
 
+const isTextNode = (node) => node.nodeType === Node.TEXT_NODE;
+
+const nodeContainsAnyTag = (node) => EMOTES.find((x) => node.textContent.includes(x.tag));
+
 const replaceDefaultEmoteSet = () => {
   console.log('[REPLACE_DEFAULT_EMOTE] Entered function');
   const array = defaultReplacementElementCandidates();
@@ -34,10 +38,6 @@ const replaceAlternateEmoteSet = () => {
   }
   console.log('[REPLACE_ALTERNATES] Done function');
 };
-
-const isTextNode = (node) => node.nodeType === Node.TEXT_NODE;
-
-const nodeContainsAnyTag = (node) => EMOTES.find((x) => node.textContent.includes(x.tag));
 
 const defaultReplacementElementCandidates = () => {
   const allElements = document.querySelectorAll('span, a, p');

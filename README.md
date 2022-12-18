@@ -20,7 +20,7 @@
 1. Check if your [Node.js](https://nodejs.org/) version is >= **14**.
 2. Clone this repository.
 3. Run `npm install` to install the dependencies.
-4. Run `build` to install the dependencies.
+4. Run `npm run build` to install the dependencies.
 5. Load your extension on Chrome:
    1. Access `chrome://extensions/`
    2. Check `Developer mode`
