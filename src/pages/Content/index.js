@@ -1,26 +1,38 @@
-import { replaceEmotes } from './modules/emotes/replaceEmotes';
-
-console.log('[CONTENT] Script loaded successfully');
+// region Imports
+import { EmoteInserter } from './modules/emotes/emoteInserter';
+// endregion
 
 window.onload = () => {
-  setTimeout(() => {
-    console.log('[CONTENT] Timeout');
-    replaceEmotes();
-  }, 2000);
+  const replacer = new EmoteInserter();
+  console.log('[CONTENT] Initial replacement');
+  replacer.replacePlaceholder();
 
-  let mutationObserverTimeout;
+  // throttle replacement if changes occure too fast.
+  let lastUpdate = new Date();
+  let throttledTimeout;
+  const throttledUpdate = (func) => {
+    console.log('[CONTENT] MutationObserver detected change');
 
-  const awaitingWrapperFunction = () => {
-    clearTimeout(mutationObserverTimeout);
+    const nextCall = 5000 - (Date.now() - lastUpdate);
+    clearTimeout(throttledTimeout);
 
-    mutationObserverTimeout = setTimeout(() => {
-      replaceEmotes();
-    }, 5000);
+    if (nextCall <= 0) {
+      func.apply();
+      lastUpdate = Date.now();
+    } else {
+      throttledTimeout = setTimeout(() => {
+        func.apply();
+        lastUpdate = Date.now();
+      }, nextCall);
+    }
   };
 
-  const DOM = document.body;
-
-  const mutationObserver = new MutationObserver(awaitingWrapperFunction);
-
-  mutationObserver.observe(DOM, { childList: true, subtree: true });
+  const mutationObserver = new MutationObserver(
+    () => throttledUpdate(
+      () => replacer.replacePlaceholder()
+    )
+  );
+  mutationObserver.observe(document.body, { childList: true, subtree: true });
 };
+
+console.log('[CONTENT] Script loaded successfully');

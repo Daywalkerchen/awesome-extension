@@ -1,3 +1,40 @@
-<p>:blobdance: asd</p>
-<span>:blobdance: asd</span>
-<span><div>:blobdance: asd</div></span>
+<html>
+    <body>
+        <button onclick="addItem()">Add :blobdance:</button>
+        <div id="itemsToReplace">
+            <ul>
+                <li>
+                    <a>link :blobdance:</a>
+                </li>
+                <li>
+                    <span>span :blobdance:</span>
+                </li>
+                <li>                    
+                    <p>paragraph :blobdance:</p>
+                </li>
+                <li>                    
+                    <div class="data-list-row-item-content">div.data-list-row-item-content :blobdance:</div>
+                </li>
+            </ul> 
+        </div>
+    </body>
+    <script>
+        function addItem(){
+            const item = document.createElement("ul");  
+            item.innerHTML = `<li>
+                    <a>zelda :blobdance:</a>
+                </li>
+                <li>
+                    <span>span :blobdance:</span>
+                </li>
+                <li>                    
+                    <p>paragraph :blobdance:</p>
+                </li>
+                <li>                    
+                    <div class="data-list-row-item-content">data-list-row-item-content :blobdance:</div>
+                </li>`;
+
+            document.getElementById("itemsToReplace").appendChild(item);
+        }
+    </script>
+</html>
