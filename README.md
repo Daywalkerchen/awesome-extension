@@ -14,6 +14,7 @@
 
 - Add optional alternates for some emotes to make content on existing sites a bit more fun. This option can be enabled
   via the popout fun.
+- Add overall counter of inserted emotes. (Can be resetted via the popout)
 
 ## Getting Started
 
@@ -26,4 +27,7 @@
    2. Check `Developer mode`
    3. Click on `Load unpacked extension`
    4. Select the `build` folder.
-6. Happy hacking.
+6. Open `/utils/test-page.html` to the the extension in action.
+7. Happy hacking.
+
+
