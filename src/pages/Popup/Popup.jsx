@@ -20,6 +20,13 @@ const Popup = () => {
     });
   };
 
+  // sets the global replancement counter to 0
+  const resetCounter = () => {
+    chrome.storage.sync.set({ replacedPlaceholder: 0 }, () => {
+      console.log('resetted replacedPlaceholder');
+    });
+  };
+
   const handleChange = (e) => {
     setEnableAlternates(e.target.checked);
   };
@@ -37,9 +44,14 @@ const Popup = () => {
         <label>Enable alternate replacement tags</label>
       </div>
       <div id="status"></div>
-      <button className="button" onClick={saveOptions}>
+      <div id='actions'>  
+       <button className="button" onClick={saveOptions}>
         Save
+      </button> 
+      <button className="button" onClick={resetCounter}>
+        Reset Count
       </button>
+      </div>   
     </div>
   );
 };
