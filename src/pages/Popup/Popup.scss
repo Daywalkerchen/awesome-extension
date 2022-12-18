@@ -15,10 +15,16 @@
     justify-content: center;
   }
 
-  .button {
+  #actions {
     position: absolute;
-    left: 6.5rem;
     bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem; 
+    margin: 0 0.5rem;
+  }
+
+  .button {   
     margin: 16px 0;
     background-color: #fff;
     border: 0 solid #e2e8f0;
@@ -28,7 +34,6 @@
     font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
       Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
       "Noto Color Emoji";
-    font-size: 1.1rem;
     font-weight: 600;
     padding: 0.6rem 1.6rem;
     transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
