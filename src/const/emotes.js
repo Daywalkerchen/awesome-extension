@@ -72,4 +72,24 @@ export const EMOTES = [
     tags: [':couldyounot:'],
     url: 'https://cdn.betterttv.net/emote/572accb540dbc1cb345d782b/3x',
   },
+  {
+    tags: [':squirtle:', ':schiggy:'],
+    url: 'https://cdn.betterttv.net/emote/62f166caecbd41815423a99c/3x',
+  },
+  {
+    tags: [':birbrave:'],
+    url: 'https://cdn.betterttv.net/emote/5c32f7f9b2b08c560f6ae60a/3x',
+  },
+  {
+    tags: [':weewoo:'],
+    url: 'https://cdn.betterttv.net/emote/5ee3af19924aa35e32a7bcd3/3x',
+  },
+  {
+    tags: [':sadge:'],
+    url: 'https://cdn.betterttv.net/emote/60a072de67644f1d67e86ee1/3x',
+  },
+  {
+    tags: [':shypeepo:'],
+    url: 'https://cdn.betterttv.net/emote/5eaa12a074046462f768344b/3x',
+  },
 ];
