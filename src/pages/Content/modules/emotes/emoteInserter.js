@@ -1,6 +1,6 @@
 // region Imports
 import './emote.scss';
-import { EMOTES, EMOTES_ALTERNATES } from '../../../../const/emotes';
+import { EMOTES } from '../../../../const/emotes';
 // endregion
 
 // region Constants
@@ -13,20 +13,15 @@ const allDataListRowItems = document.getElementsByClassName('data-list-row-item-
 
 // region Helper functions
 const isTextNode = (node) => node.nodeType === Node.TEXT_NODE;
-const nodeContainsAnyTag = (node) => EMOTES.find((x) => node.textContent.includes(x.tag));
+const nodeContainsAnyTag = (node) => EMOTES.find((emote) => emote.tags.some((tag) => node.textContent.includes(tag)));
 const sum = (a, b) => a + b;
 // endregion
 
 export const replacePlaceholder = () => {
-  const candidates = replacementElementCandidates();
-  console.info('[EmoteInserter] replacing default placeholder');
-  replaceEmotesInElements(candidates, EMOTES);
-
   chrome.storage.sync.get({ enableAlternates: false }, (items) => {
-    if (items.enableAlternates) {
-      console.info('[EmoteInserter] replacing alternate placeholder');
-      replaceEmotesInElements(candidates, EMOTES_ALTERNATES);
-    }
+    console.info('[EmoteInserter] replacing placeholder', items.enableAlternates);
+    const candidates = replacementElementCandidates();
+    replaceEmotesInElements(candidates, items.enableAlternates);
   });
 };
 const replacementElementCandidates = () => {
@@ -38,7 +33,16 @@ const replacementElementCandidates = () => {
   ];
 };
 
-const replaceEmotesInElements = (candidates, emoteSet) => {
+const getEmotesThatAreUsedInElement = (element, useAlternatives) => {
+  return EMOTES.flatMap((emote) => {
+    const emoteTags = useAlternatives ? emote.tags : emote.tags.slice(0, 1);
+    const foundTags = emoteTags
+      .filter((tag) => element.innerText.includes(tag));
+    return foundTags.map((tag) => ({tag: tag, url: emote.url}));
+  });
+}
+
+const replaceEmotesInElements = (candidates, useAlternatives) => {
   if (!candidates.length) {
     return 0;
   }
@@ -46,10 +50,9 @@ const replaceEmotesInElements = (candidates, emoteSet) => {
   const replaceableElements = candidates
     .map((element) => ({
       element,
-      emotes: emoteSet.filter((emote) => element.innerText.includes(emote.tag)),
+      emotes: getEmotesThatAreUsedInElement(element, useAlternatives),
     }))
     .filter((pair) => pair.emotes.length > 0);
-
   if (!replaceableElements.length) {
     return 0;
   }
