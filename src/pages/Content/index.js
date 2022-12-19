@@ -7,7 +7,7 @@ window.onload = () => {
   console.log('[CONTENT] Initial replacement');
   replacer.replacePlaceholder();
 
-  // throttle replacement if changes occure too fast.
+  // Throttle replacement if changes occur too fast.
   let lastUpdate = new Date();
   let throttledTimeout;
   const throttledUpdate = (func) => {
@@ -27,11 +27,10 @@ window.onload = () => {
     }
   };
 
-  const mutationObserver = new MutationObserver(
-    () => throttledUpdate(
-      () => replacer.replacePlaceholder()
-    )
+  const mutationObserver = new MutationObserver(() =>
+    throttledUpdate(() => replacer.replacePlaceholder())
   );
+
   mutationObserver.observe(document.body, { childList: true, subtree: true });
 };
 

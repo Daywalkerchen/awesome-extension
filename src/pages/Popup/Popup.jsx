@@ -44,14 +44,14 @@ const Popup = () => {
         <label>Enable alternate replacement tags</label>
       </div>
       <div id="status"></div>
-      <div id='actions'>  
-       <button className="button" onClick={saveOptions}>
-        Save
-      </button> 
-      <button className="button" onClick={resetCounter}>
-        Reset Count
-      </button>
-      </div>   
+      <div id="actions">
+        <button className="button" onClick={saveOptions}>
+          Save
+        </button>
+        <button className="button" onClick={resetCounter}>
+          Reset Count
+        </button>
+      </div>
     </div>
   );
 };
