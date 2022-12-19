@@ -6,12 +6,13 @@
   "background": {
     "service_worker": "background.bundle.js"
   },
-  "permissions": ["storage"],
+  "permissions": ["storage", "contextMenus"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
   },
   "icons": {
+    "16": "icon-16.png",
     "128": "icon-128.png"
   },
   "content_scripts": [
@@ -23,7 +24,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
+      "resources": ["content.styles.css", "icon-128.png", "icon-34.png", "icon-16.png"],
       "matches": []
     },
     {

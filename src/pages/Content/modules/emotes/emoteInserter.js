@@ -4,6 +4,8 @@ import { EMOTES } from '../../../../const/emotes';
 // endregion
 
 // region Constants
+export const componentName = "EmoteInserter";
+
 const allParagraphs = document.getElementsByTagName('p');
 const allLinks = document.getElementsByTagName('a');
 const allSpan = document.getElementsByTagName('span');
@@ -19,7 +21,7 @@ const sum = (a, b) => a + b;
 
 export const replacePlaceholder = async () => {
   const items = await chrome.storage.sync.get({ enableAlternates: false });
-  console.info('[EmoteInserter] replacing placeholder', items.enableAlternates);
+  console.info(`[${componentName}] replacing placeholder`, items.enableAlternates);
   const candidates = replacementElementCandidates();
   replaceEmotesInElements(candidates, items.enableAlternates);
 };
@@ -73,7 +75,7 @@ const replaceEmotesInElements = (candidates, useAlternatives) => {
 
   chrome.storage.sync.get({ replacedPlaceholder: 0 }, (item) =>
     chrome.storage.sync.set({ replacedPlaceholder: item.replacedPlaceholder + addedEmotes }, () => {
-      console.log('[EmoteInserter] added %d emotes', addedEmotes);
+      console.log(`[${componentName}] added ${addedEmotes} emotes`, );
     })
   );
 

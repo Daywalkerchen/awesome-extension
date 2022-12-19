@@ -1,18 +1,27 @@
 // region Imports
-import { replacePlaceholder } from './modules/emotes/emoteInserter';
+import { componentName as replacerComponentName, replacePlaceholder } from './modules/emotes/emoteInserter';
+import {  componentName as bbbbComponentName, insertDailySchedule } from './modules/betterBigBlueButton/bbbb';
+import { BBBB_INSERT_DAILY_SCHELUDE_MESSAGE } from '../../const/messages';
 // endregion
+
+// region helper
 
 const isExtensionReloadError = (error) => error.message.includes('Extension context invalidated');
 
-const logError = (error) => {
+const logError = (component, error) => {
   if (isExtensionReloadError(error)) {
     console.info(`An Extension reload error: ${error.message}`);
   } else {
-    console.error('Content script error', error);
+    console.error(`[${component}] Content script error`, error);
   }
 };
 
-const onload = async () => {
+// endregion
+
+
+//region emote replacement
+
+const initGlobalEmotes = async () => {
   console.log('[CONTENT] Initial replacement');
   await replacePlaceholder();
 
@@ -20,8 +29,6 @@ const onload = async () => {
   let lastUpdate = new Date();
   let throttledTimeout;
   const throttledUpdate = (func) => {
-    console.log('[CONTENT] MutationObserver detected change');
-
     const nextCall = 2000 - (Date.now() - lastUpdate);
     clearTimeout(throttledTimeout);
 
@@ -39,7 +46,7 @@ const onload = async () => {
   const mutationObserver = new MutationObserver(() =>
     throttledUpdate(() =>
       replacePlaceholder().catch((error) => {
-        logError(error);
+        logError(replacerComponentName, error);
         mutationObserver.disconnect();
       })
     )
@@ -48,8 +55,28 @@ const onload = async () => {
   mutationObserver.observe(document.body, { childList: true, subtree: true });
 };
 
-window.onload = () => {
-  onload().catch((error) => logError(error));
+// endregion
+
+// region better big blue button
+
+const initBetterBigBlueButton = async () => {
+  chrome.runtime.onMessage.addListener(function (request, sender) {
+    if (request === BBBB_INSERT_DAILY_SCHELUDE_MESSAGE) {
+      insertDailySchedule();
+    }
+  });
 };
 
+// endregion
+
+window.onload = () => {
+  initGlobalEmotes()
+    .catch((error) => logError(replacerComponentName, error));
+    
+  // todo exact urls to enable BBBB to settings
+  if (document.URL.startsWith('https://conference.')) {
+    initBetterBigBlueButton() 
+     .catch((error) => logError(bbbbComponentName, error));
+  }
+};
 console.log('[CONTENT] Script loaded successfully');
