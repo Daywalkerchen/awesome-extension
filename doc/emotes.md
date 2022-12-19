@@ -1,3 +1,11 @@
+### Since v1.0.5
+
+- `:squirtle:`
+- `:birbrave:`
+- `:weewoo:`
+- `:sadge:`
+- `:shypeepo:`
+
 ### Since v1.0.2
 
 - `:couldyounot:`
