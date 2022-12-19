@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Awesome Extension",
-  "description": "Adds emotes to youtrack and gitea",
+  "description": "Adds some awesome functions to your browser",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"
