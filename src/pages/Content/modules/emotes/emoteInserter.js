@@ -3,44 +3,40 @@ import './emote.scss';
 import { EMOTES, EMOTES_ALTERNATES } from '../../../../const/emotes';
 // endregion
 
-export class EmoteInserter {
-  // getElementsByTagName and getElementsByClassName are returning live node list. So in case the DOM gets updated it will contain the new items.
-  // So in order to only doing the operations once, we keep a ref. to the live list.
-  allParagraphs = document.getElementsByTagName('p');
-  allLinks = document.getElementsByTagName('a');
-  allSpan = document.getElementsByTagName('span');
-  // angular data list row items
-  allDataListRowItems = document.getElementsByClassName('data-list-row-item-content');
+// region Constants
+const allParagraphs = document.getElementsByTagName('p');
+const allLinks = document.getElementsByTagName('a');
+const allSpan = document.getElementsByTagName('span');
+// angular data list row items
+const allDataListRowItems = document.getElementsByClassName('data-list-row-item-content');
+// endregion
 
-  replacePlaceholder() {
-    const candidates = this.replacementElementCandidates();
-    console.info('[EmoteInserter] replacing default placeholder');
-    replaceDefaultPlaceholder(candidates);
-
-    chrome.storage.sync.get({ enableAlternates: false }, (items) => {
-      if (items.enableAlternates) {
-        console.info('[EmoteInserter] replacing alternate placeholder');
-        replaceAlternatePlaceholder(candidates);
-      }
-    });
-  }
-
-  replacementElementCandidates() {
-    return [
-      ...this.allDataListRowItems,
-      ...[...this.allParagraphs, ...this.allLinks, ...this.allSpan].filter((element) =>
-        [...element.childNodes].some((node) => isTextNode(node) && nodeContainsAnyTag(node))
-      ),
-    ];
-  }
-}
-
+// region Helper functions
 const isTextNode = (node) => node.nodeType === Node.TEXT_NODE;
 const nodeContainsAnyTag = (node) => EMOTES.find((x) => node.textContent.includes(x.tag));
+const sum = (a, b) => a + b;
+// endregion
 
-const replaceDefaultPlaceholder = (candidates) => replaceEmotesInElements(candidates, EMOTES);
-const replaceAlternatePlaceholder = (candidates) =>
-  replaceEmotesInElements(candidates, EMOTES_ALTERNATES);
+export const replacePlaceholder = () => {
+  const candidates = replacementElementCandidates();
+  console.info('[EmoteInserter] replacing default placeholder');
+  replaceEmotesInElements(candidates, EMOTES);
+
+  chrome.storage.sync.get({ enableAlternates: false }, (items) => {
+    if (items.enableAlternates) {
+      console.info('[EmoteInserter] replacing alternate placeholder');
+      replaceEmotesInElements(candidates, EMOTES_ALTERNATES);
+    }
+  });
+};
+const replacementElementCandidates = () => {
+  return [
+    ...allDataListRowItems,
+    ...[...allParagraphs, ...allLinks, ...allSpan].filter((element) =>
+      [...element.childNodes].some((node) => isTextNode(node) && nodeContainsAnyTag(node))
+    ),
+  ];
+};
 
 const replaceEmotesInElements = (candidates, emoteSet) => {
   if (!candidates.length) {
@@ -81,5 +77,3 @@ const replaceEmotesInElements = (candidates, emoteSet) => {
 
   return addedEmotes;
 };
-
-const sum = (a, b) => a + b;

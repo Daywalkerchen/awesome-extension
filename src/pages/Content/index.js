@@ -1,11 +1,10 @@
 // region Imports
-import { EmoteInserter } from './modules/emotes/emoteInserter';
+import { replacePlaceholder } from './modules/emotes/emoteInserter';
 // endregion
 
 window.onload = () => {
-  const replacer = new EmoteInserter();
   console.log('[CONTENT] Initial replacement');
-  replacer.replacePlaceholder();
+  replacePlaceholder();
 
   // Throttle replacement if changes occur too fast.
   let lastUpdate = new Date();
@@ -27,9 +26,7 @@ window.onload = () => {
     }
   };
 
-  const mutationObserver = new MutationObserver(() =>
-    throttledUpdate(() => replacer.replacePlaceholder())
-  );
+  const mutationObserver = new MutationObserver(() => throttledUpdate(() => replacePlaceholder()));
 
   mutationObserver.observe(document.body, { childList: true, subtree: true });
 };
