@@ -8,7 +8,7 @@ const EmotePicker = () => {
   return (
     <div className="emote-picker">
       {EMOTES.map((emote, index) => (
-        <Emote key={`${emote.tag}_${index}`} emote={emote} />
+        <Emote key={`${emote.tags[0]}_${index}`} emote={emote} />
       ))}
     </div>
   );

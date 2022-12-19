@@ -2,13 +2,14 @@ import React from 'react';
 import './emote.scss';
 
 const Emote = ({ emote }) => {
+  const tag = emote.tags[0];
   const onClick = () => {
-    navigator.clipboard.writeText(emote.tag);
+    navigator.clipboard.writeText(tag);
   }
 
   return (
     <div onClick={onClick} className="emote">
-      {emote.tag}
+      {tag}
     </div>
   );
 };
