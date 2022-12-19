@@ -10,12 +10,6 @@
     </div>
 </div>
 
-### Scheduled for next release
-
-- Add optional alternates for some emotes to make content on existing sites a bit more fun. This option can be enabled
-  via the popout fun.
-- Add overall counter of inserted emotes. (Can be resetted via the popout)
-
 ## Getting Started
 
 1. Check if your [Node.js](https://nodejs.org/) version is >= **14**.
