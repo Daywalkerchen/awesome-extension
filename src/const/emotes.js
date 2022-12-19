@@ -1,7 +1,6 @@
-
 export const EMOTES = [
   {
-    tags: [':blobdance:', 'c8731aa4-b90f-4482 84c2-65b9be019cd5'],  // this random id may be a random person's name idk
+    tags: [':blobdance:', 'c8731aa4-b90f-4482 84c2-65b9be019cd5'], // this random id may be a random person's name idk
     url: 'https://cdn.betterttv.net/emote/5ada077451d4120ea3918426/3x',
   },
   {
@@ -91,5 +90,9 @@ export const EMOTES = [
   {
     tags: [':shypeepo:'],
     url: 'https://cdn.betterttv.net/emote/5eaa12a074046462f768344b/3x',
+  },
+  {
+    tags: [':kappa:'],
+    url: 'https://cdn.betterttv.net/emote/61f2f17c06fd6a9f5be2630a/3x',
   },
 ];
