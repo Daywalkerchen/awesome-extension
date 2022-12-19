@@ -2,7 +2,6 @@ import React from 'react';
 import './emote.scss';
 
 const Emote = ({ emote }) => {
-  console.log(emote.tag);
   const onClick = () => {
     navigator.clipboard.writeText(emote.tag);
   }
