@@ -141,6 +141,15 @@ const options = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: 'src/assets/img/icon-16.png',
+          to: path.join(__dirname, 'build'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
           from: 'src/assets/img/icon-34.png',
           to: path.join(__dirname, 'build'),
           force: true,
