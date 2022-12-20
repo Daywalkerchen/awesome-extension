@@ -18,4 +18,7 @@ export const insertDailySchedule = () => {
   }
 
   messageInput.value = createDailySchedule();
+
+  // dispatch change event, so that the bbb code accepts our input as valid
+  messageInput.dispatchEvent(new window.Event('change', { bubbles: true }));
 };

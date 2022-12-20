@@ -16,25 +16,24 @@ chrome.storage.onChanged.addListener((changes) => {
 
 //region context menue
 
-const scheduleContextMenueId = 'bbbbDailyScheudle';
-
-const searchTerapeak = (info, tab) => {
-  if (info.menuItemId !== scheduleContextMenueId) {
-    return;
-  }
-
-  chrome.tabs.sendMessage(tab.id, BBBB_INSERT_DAILY_SCHELUDE_MESSAGE);
-};
+const scheduleContextMenueId = 'bbbbDailySchedule';
 
 chrome.contextMenus.removeAll(function () {
   chrome.contextMenus.create({
     id: scheduleContextMenueId,
     // todo exact urls to enable BBBB to settings
-    documentUrlPatterns: ['https://conference.*/*'],
+    documentUrlPatterns: ['https://*/html5client/join*'],
     title: 'Insert Daily Schedule',
     contexts: ['editable'],
   });
 });
-chrome.contextMenus.onClicked.addListener(searchTerapeak);
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId !== scheduleContextMenueId) {
+    return;
+  }
+
+  chrome.tabs.sendMessage(tab.id, BBBB_INSERT_DAILY_SCHELUDE_MESSAGE);
+});
 
 // endregion
