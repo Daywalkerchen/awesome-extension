@@ -24,3 +24,7 @@
 6. Open `/utils/test-page.html` to the extension in action.
 7. Run `npm run prepare` to install the prettier precommit hook.
 8. Happy hacking.
+
+## Resources
+
+All emotes have been downloaded from https://cdn.betterttv.net
