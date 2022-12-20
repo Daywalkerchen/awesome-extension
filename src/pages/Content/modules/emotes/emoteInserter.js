@@ -17,13 +17,13 @@ const nodeContainsAnyTag = (node) => EMOTES.find((emote) => emote.tags.some((tag
 const sum = (a, b) => a + b;
 // endregion
 
-export const replacePlaceholder = () => {
-  chrome.storage.sync.get({ enableAlternates: false }, (items) => {
-    console.info('[EmoteInserter] replacing placeholder', items.enableAlternates);
-    const candidates = replacementElementCandidates();
-    replaceEmotesInElements(candidates, items.enableAlternates);
-  });
+export const replacePlaceholder = async () => {
+  const items = await chrome.storage.sync.get({ enableAlternates: false });
+  console.info('[EmoteInserter] replacing placeholder', items.enableAlternates);
+  const candidates = replacementElementCandidates();
+  replaceEmotesInElements(candidates, items.enableAlternates);
 };
+
 const replacementElementCandidates = () => {
   return [
     ...allDataListRowItems,
@@ -36,11 +36,10 @@ const replacementElementCandidates = () => {
 const getEmotesThatAreUsedInElement = (element, useAlternatives) => {
   return EMOTES.flatMap((emote) => {
     const emoteTags = useAlternatives ? emote.tags : emote.tags.slice(0, 1);
-    const foundTags = emoteTags
-      .filter((tag) => element.innerText.includes(tag));
-    return foundTags.map((tag) => ({tag: tag, url: emote.url}));
+    const foundTags = emoteTags.filter((tag) => element.innerText.includes(tag));
+    return foundTags.map((tag) => ({ tag: tag, url: emote.url }));
   });
-}
+};
 
 const replaceEmotesInElements = (candidates, useAlternatives) => {
   if (!candidates.length) {
