@@ -1,4 +1,4 @@
-export const componentName = "BetterBigBlueButton";
+export const componentName = 'BetterBigBlueButton';
 
 const findShuffledUserNames = () => {
   const users = document.querySelectorAll('[data-test="userListItem"] div div span span, [data-test="userListItemCurrent"] div div span span');
@@ -13,7 +13,7 @@ const createDailySchedule = () => {
 export const insertDailySchedule = () => {
   const messageInput = document.getElementById('message-input');
   if (!messageInput) {
-    console.error(`[${componentName}] Unable to find message-input, we are propably not in a bbb conference`);
+    console.error(`[${componentName}] Unable to find message-input, we are probably not in a bbb conference`);
     return;
   }
 
