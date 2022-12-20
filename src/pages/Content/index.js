@@ -36,16 +36,20 @@ const onload = async () => {
     }
   };
 
-  const mutationObserver = new MutationObserver(() => throttledUpdate(() => replacePlaceholder().catch(error => {
-    logError(error);
-    mutationObserver.disconnect();
-  })));
+  const mutationObserver = new MutationObserver(() =>
+    throttledUpdate(() =>
+      replacePlaceholder().catch((error) => {
+        logError(error);
+        mutationObserver.disconnect();
+      })
+    )
+  );
 
   mutationObserver.observe(document.body, { childList: true, subtree: true });
 };
 
 window.onload = () => {
-  onload().catch(error => logError(error));
+  onload().catch((error) => logError(error));
 };
 
 console.log('[CONTENT] Script loaded successfully');

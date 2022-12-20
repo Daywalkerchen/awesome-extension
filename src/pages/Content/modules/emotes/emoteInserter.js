@@ -36,11 +36,10 @@ const replacementElementCandidates = () => {
 const getEmotesThatAreUsedInElement = (element, useAlternatives) => {
   return EMOTES.flatMap((emote) => {
     const emoteTags = useAlternatives ? emote.tags : emote.tags.slice(0, 1);
-    const foundTags = emoteTags
-      .filter((tag) => element.innerText.includes(tag));
-    return foundTags.map((tag) => ({tag: tag, url: emote.url}));
+    const foundTags = emoteTags.filter((tag) => element.innerText.includes(tag));
+    return foundTags.map((tag) => ({ tag: tag, url: emote.url }));
   });
-}
+};
 
 const replaceEmotesInElements = (candidates, useAlternatives) => {
   if (!candidates.length) {

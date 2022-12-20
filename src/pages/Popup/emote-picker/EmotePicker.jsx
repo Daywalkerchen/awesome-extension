@@ -4,7 +4,6 @@ import Emote from './emote/Emote';
 import './emotePicker.scss';
 
 const EmotePicker = () => {
-
   return (
     <div className="emote-picker">
       {EMOTES.map((emote, index) => (
