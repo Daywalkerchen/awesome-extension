@@ -1,6 +1,6 @@
 // region Imports
 import { componentName as replacerComponentName, replacePlaceholder } from './modules/emotes/emoteInserter';
-import {  componentName as bbbbComponentName, insertDailySchedule } from './modules/betterBigBlueButton/bbbb';
+import { componentName as bbbbComponentName, insertDailySchedule } from './modules/better-big-blue-button/betterBigBlueButton';
 import { BBBB_INSERT_DAILY_SCHELUDE_MESSAGE } from '../../const/messages';
 // endregion
 
@@ -17,7 +17,6 @@ const logError = (component, error) => {
 };
 
 // endregion
-
 
 //region emote replacement
 
@@ -60,7 +59,7 @@ const initGlobalEmotes = async () => {
 // region better big blue button
 
 const initBetterBigBlueButton = async () => {
-  chrome.runtime.onMessage.addListener(function (request, sender) {
+  chrome.runtime.onMessage.addListener( (request) => {
     if (request === BBBB_INSERT_DAILY_SCHELUDE_MESSAGE) {
       insertDailySchedule();
     }
@@ -70,13 +69,11 @@ const initBetterBigBlueButton = async () => {
 // endregion
 
 window.onload = () => {
-  initGlobalEmotes()
-    .catch((error) => logError(replacerComponentName, error));
-    
+  initGlobalEmotes().catch((error) => logError(replacerComponentName, error));
+
   // todo exact urls to enable BBBB to settings
   if (document.URL.startsWith('https://conference.')) {
-    initBetterBigBlueButton() 
-     .catch((error) => logError(bbbbComponentName, error));
+    initBetterBigBlueButton().catch((error) => logError(bbbbComponentName, error));
   }
 };
 console.log('[CONTENT] Script loaded successfully');

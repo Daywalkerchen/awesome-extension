@@ -4,7 +4,7 @@ import { EMOTES } from '../../../../const/emotes';
 // endregion
 
 // region Constants
-export const componentName = "EmoteInserter";
+export const componentName = 'EmoteInserter';
 
 const allParagraphs = document.getElementsByTagName('p');
 const allLinks = document.getElementsByTagName('a');
@@ -75,7 +75,7 @@ const replaceEmotesInElements = (candidates, useAlternatives) => {
 
   chrome.storage.sync.get({ replacedPlaceholder: 0 }, (item) =>
     chrome.storage.sync.set({ replacedPlaceholder: item.replacedPlaceholder + addedEmotes }, () => {
-      console.log(`[${componentName}] added ${addedEmotes} emotes`, );
+      console.log(`[${componentName}] added ${addedEmotes} emotes`);
     })
   );
 
