@@ -25,6 +25,10 @@
     {
       "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
       "matches": []
+    },
+    {
+      "resources": ["/emotes/*"],
+      "matches": ["<all_urls>"]
     }
   ]
 }
