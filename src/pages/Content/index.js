@@ -2,9 +2,19 @@
 import { replacePlaceholder } from './modules/emotes/emoteInserter';
 // endregion
 
-window.onload = () => {
+const isExtensionReloadError = (error) => error.message.includes('Extension context invalidated');
+
+const logError = (error) => {
+  if (isExtensionReloadError(error)) {
+    console.info(`An Extension reload error: ${error.message}`);
+  } else {
+    console.error('Content script error', error);
+  }
+};
+
+const onload = async () => {
   console.log('[CONTENT] Initial replacement');
-  replacePlaceholder();
+  await replacePlaceholder();
 
   // Throttle replacement if changes occur too fast.
   let lastUpdate = new Date();
@@ -26,9 +36,16 @@ window.onload = () => {
     }
   };
 
-  const mutationObserver = new MutationObserver(() => throttledUpdate(() => replacePlaceholder()));
+  const mutationObserver = new MutationObserver(() => throttledUpdate(() => replacePlaceholder().catch(error => {
+    logError(error);
+    mutationObserver.disconnect();
+  })));
 
   mutationObserver.observe(document.body, { childList: true, subtree: true });
+};
+
+window.onload = () => {
+  onload().catch(error => logError(error));
 };
 
 console.log('[CONTENT] Script loaded successfully');

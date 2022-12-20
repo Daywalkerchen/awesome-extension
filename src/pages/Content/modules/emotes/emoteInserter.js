@@ -17,13 +17,13 @@ const nodeContainsAnyTag = (node) => EMOTES.find((emote) => emote.tags.some((tag
 const sum = (a, b) => a + b;
 // endregion
 
-export const replacePlaceholder = () => {
-  chrome.storage.sync.get({ enableAlternates: false }, (items) => {
-    console.info('[EmoteInserter] replacing placeholder', items.enableAlternates);
-    const candidates = replacementElementCandidates();
-    replaceEmotesInElements(candidates, items.enableAlternates);
-  });
+export const replacePlaceholder = async () => {
+  const items = await chrome.storage.sync.get({ enableAlternates: false });
+  console.info('[EmoteInserter] replacing placeholder', items.enableAlternates);
+  const candidates = replacementElementCandidates();
+  replaceEmotesInElements(candidates, items.enableAlternates);
 };
+
 const replacementElementCandidates = () => {
   return [
     ...allDataListRowItems,
