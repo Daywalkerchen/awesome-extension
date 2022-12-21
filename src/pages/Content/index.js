@@ -1,7 +1,7 @@
 // region Imports
 import { componentName as replacerComponentName, replacePlaceholder } from './modules/emotes/emoteInserter';
 import { componentName as bbbbComponentName, insertDailySchedule } from './modules/better-big-blue-button/betterBigBlueButton';
-import { BBBB_INSERT_DAILY_SCHELUDE_MESSAGE } from '../../const/messages';
+import { BBBB_INSERT_DAILY_SCHEDULE_MESSAGE } from '../../const/messages';
 // endregion
 
 // region helper
@@ -59,8 +59,8 @@ const initGlobalEmotes = async () => {
 // region better big blue button
 
 const initBetterBigBlueButton = async () => {
-  chrome.runtime.onMessage.addListener( (request) => {
-    if (request === BBBB_INSERT_DAILY_SCHELUDE_MESSAGE) {
+  chrome.runtime.onMessage.addListener((request) => {
+    if (request === BBBB_INSERT_DAILY_SCHEDULE_MESSAGE) {
       insertDailySchedule();
     }
   });
