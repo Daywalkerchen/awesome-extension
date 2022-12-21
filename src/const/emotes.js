@@ -109,4 +109,8 @@ export const EMOTES = [
     tags: [':walkingduck:', ':duck:'],
     url: `${emotesBasePath}/walkingduck.gif`,
   },
+  {
+    tags: [':bulbasaur:', ':bisasam:', ':awww:'],
+    url: `${emotesBasePath}/bulbasaur.gif`,
+  },
 ];
