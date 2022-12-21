@@ -101,4 +101,12 @@ export const EMOTES = [
     tags: [':derp:', ':menue:'],
     url: `${emotesBasePath}/derp.png`,
   },
+  {
+    tags: [':poggers:'],
+    url: `${emotesBasePath}/poggers.png`,
+  },
+  {
+    tags: [':walkingduck:'],
+    url: `${emotesBasePath}/duck.gif`,
+  },
 ];
