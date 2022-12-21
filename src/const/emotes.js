@@ -58,7 +58,7 @@ export const EMOTES = [
     url: `${emotesBasePath}/noted.gif`,
   },
   {
-    tags: [':vibebunny:'],
+    tags: [':vibebunny:', ':vibe:'],
     url: `${emotesBasePath}/vibebunny.gif`,
   },
   {
@@ -96,5 +96,9 @@ export const EMOTES = [
   {
     tags: [':kappa:'],
     url: `${emotesBasePath}/kappa.gif`,
+  },
+  {
+    tags: [':derp:', ':menue:'],
+    url: `${emotesBasePath}/derp.png`,
   },
 ];
