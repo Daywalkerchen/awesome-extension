@@ -159,7 +159,7 @@ const options = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/img/emotes/',
+          from: 'src/assets/emotes/',
           to: path.join(__dirname, 'build/emotes'),
           force: true,
         },
