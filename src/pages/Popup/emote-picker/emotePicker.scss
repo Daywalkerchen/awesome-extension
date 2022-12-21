@@ -2,5 +2,6 @@
   padding-top: 12px;
   display: flex;
   flex-wrap: wrap;
-  overflow: auto;
+  height: 70vh;
+  overflow-y: scroll;
 }

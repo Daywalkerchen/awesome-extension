@@ -1,15 +1,17 @@
+// region Imports
 import React from 'react';
 import './emote.scss';
+// endregion
 
 const Emote = ({ emote }) => {
   const tag = emote.tags[0];
-  const onClick = () => {
-    navigator.clipboard.writeText(tag);
+  const onClick = async () => {
+    await navigator.clipboard.writeText(tag);
   };
 
   return (
     <div onClick={onClick} className="emote">
-      <img height="15px" width="15px" src={emote.url} title={tag}/>
+      <img src={emote.url} title={tag}  alt={tag}/>
     </div>
   );
 };
