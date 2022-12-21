@@ -9,7 +9,7 @@ const Emote = ({ emote }) => {
 
   return (
     <div onClick={onClick} className="emote">
-      {tag}
+      <img height="15px" width="15px" src={emote.url} title={tag}/>
     </div>
   );
 };
