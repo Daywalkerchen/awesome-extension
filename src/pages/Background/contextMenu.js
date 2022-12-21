@@ -1,5 +1,5 @@
 // region Imports
-import { BBBB_INSERT_DAILY_SCHELUDE_MESSAGE } from '../../const/messages';
+import { BBBB_INSERT_DAILY_SCHEDULE_MESSAGE } from '../../const/messages';
 // endregion
 
 // region Constants
@@ -20,5 +20,5 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     return;
   }
 
-  chrome.tabs.sendMessage(tab.id, BBBB_INSERT_DAILY_SCHELUDE_MESSAGE);
+  chrome.tabs.sendMessage(tab.id, BBBB_INSERT_DAILY_SCHEDULE_MESSAGE);
 });
