@@ -1,7 +1,9 @@
 .emote-picker {
-  padding-top: 12px;
   display: flex;
   flex-wrap: wrap;
-  height: 70vh;
   overflow-y: scroll;
+}
+
+.emote-picker::-webkit-scrollbar {
+  display: none;
 }

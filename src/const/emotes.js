@@ -6,20 +6,44 @@ export const EMOTES = [
     url: `${emotesBasePath}/blobdance.gif`,
   },
   {
-    tags: [':thisisfine:'],
-    url: `${emotesBasePath}/thisisfine.gif`,
+    tags: [':birbrave:'],
+    url: `${emotesBasePath}/birbrave.gif`,
   },
   {
     tags: [':catjam:'],
     url: `${emotesBasePath}/catjam.gif`,
   },
   {
-    tags: [':surprised-pikachu:'],
-    url: `${emotesBasePath}/surprised-pikachu.gif`,
-  },
-  {
     tags: [':hype:'],
     url: `${emotesBasePath}/hype.gif`,
+  },
+  {
+    tags: [':discocat:'],
+    url: `${emotesBasePath}/discocat.gif`,
+  },
+  {
+    tags: [':vibebunny:', ':vibe:'],
+    url: `${emotesBasePath}/vibebunny.gif`,
+  },
+  {
+    tags: [':bongocat:'],
+    url: `${emotesBasePath}/bongocat.gif`,
+  },
+  {
+    tags: [':popcat:'],
+    url: `${emotesBasePath}/popcat.gif`,
+  },
+  {
+    tags: [':typingcat:'],
+    url: `${emotesBasePath}/typingcat.gif`,
+  },
+  {
+    tags: [':thisisfine:'],
+    url: `${emotesBasePath}/thisisfine.gif`,
+  },
+  {
+    tags: [':surprised-pikachu:'],
+    url: `${emotesBasePath}/surprised-pikachu.gif`,
   },
   {
     tags: [':confused_dog:'],
@@ -30,10 +54,6 @@ export const EMOTES = [
     url: `${emotesBasePath}/suss.gif`,
   },
   {
-    tags: [':typingcat:'],
-    url: `${emotesBasePath}/typingcat.gif`,
-  },
-  {
     tags: [':amongus:'],
     url: `${emotesBasePath}/amongus.gif`,
   },
@@ -42,48 +62,24 @@ export const EMOTES = [
     url: `${emotesBasePath}/pressf.gif`,
   },
   {
-    tags: [':popcat:'],
-    url: `${emotesBasePath}/popcat.gif`,
+    tags: [':squirtle:', ':schiggy:'],
+    url: `${emotesBasePath}/squirtle.gif`,
   },
   {
-    tags: [':bongocat:'],
-    url: `${emotesBasePath}/bongocat.gif`,
+    tags: [':bulbasaur:', ':bisasam:', ':awww:'],
+    url: `${emotesBasePath}/bulbasaur.gif`,
   },
   {
     tags: [':charmander:'],
     url: `${emotesBasePath}/charmander.gif`,
   },
   {
-    tags: [':noted:'],
-    url: `${emotesBasePath}/noted.gif`,
-  },
-  {
-    tags: [':vibebunny:', ':vibe:'],
-    url: `${emotesBasePath}/vibebunny.gif`,
-  },
-  {
-    tags: [':discocat:'],
-    url: `${emotesBasePath}/discocat.gif`,
-  },
-  {
-    tags: [':kekw:'],
-    url: `${emotesBasePath}/kekw.gif`,
-  },
-  {
-    tags: [':couldyounot:'],
-    url: `${emotesBasePath}/couldyounot.gif`,
-  },
-  {
-    tags: [':squirtle:', ':schiggy:'],
-    url: `${emotesBasePath}/squirtle.gif`,
-  },
-  {
-    tags: [':birbrave:'],
-    url: `${emotesBasePath}/birbrave.gif`,
-  },
-  {
     tags: [':weewoo:'],
     url: `${emotesBasePath}/weewoo.gif`,
+  },
+  {
+    tags: [':noted:'],
+    url: `${emotesBasePath}/noted.gif`,
   },
   {
     tags: [':sadge:'],
@@ -94,23 +90,27 @@ export const EMOTES = [
     url: `${emotesBasePath}/shypeepo.gif`,
   },
   {
+    tags: [':poggers:'],
+    url: `${emotesBasePath}/poggers.png`,
+  },
+  {
     tags: [':kappa:'],
     url: `${emotesBasePath}/kappa.gif`,
+  },
+  {
+    tags: [':kekw:'],
+    url: `${emotesBasePath}/kekw.gif`,
+  },
+  {
+    tags: [':couldyounot:'],
+    url: `${emotesBasePath}/couldyounot.gif`,
   },
   {
     tags: [':derp:', ':menue:'],
     url: `${emotesBasePath}/derp.png`,
   },
   {
-    tags: [':poggers:'],
-    url: `${emotesBasePath}/poggers.png`,
-  },
-  {
     tags: [':walkingduck:', ':duck:'],
     url: `${emotesBasePath}/walkingduck.gif`,
-  },
-  {
-    tags: [':bulbasaur:', ':bisasam:', ':awww:'],
-    url: `${emotesBasePath}/bulbasaur.gif`,
   },
 ];
