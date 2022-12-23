@@ -83,21 +83,19 @@ const replaceEmotesInElements = (candidates, useAlternatives) => {
   const addedEmotes = replaceableElements
     .map(({ element, emotes }) =>
       emotes
-        .map((emote) => {
-          let numOfPlaceholders = 0;
-          [...element.childNodes].forEach((node) => {
-            if (!isTextNode(node)) {
-              return;
-            }
-            const newTextOrEmoteNodes = splitTextNodeToEmoteNodes(node.textContent, emote);
-            newTextOrEmoteNodes.forEach((newTextOrEmoteNode) => {
-              element.insertBefore(newTextOrEmoteNode, node);
-            });
-            numOfPlaceholders += Math.floor(newTextOrEmoteNodes.length / 2);
-            element.removeChild(node);
-          });
-          return numOfPlaceholders;
-        })
+        .map((emote) =>
+          [...element.childNodes]
+            .filter((node) => isTextNode(node))
+            .map((node) => {
+              const newTextOrEmoteNodes = splitTextNodeToEmoteNodes(node.textContent, emote);
+              newTextOrEmoteNodes.forEach((newTextOrEmoteNode) => {
+                element.insertBefore(newTextOrEmoteNode, node);
+              });
+              element.removeChild(node);
+              return Math.floor(newTextOrEmoteNodes.length / 2);
+            })
+            .reduce(sum, 0)
+        )
         .reduce(sum)
     )
     .reduce(sum);
