@@ -113,50 +113,26 @@ const options = {
             );
           },
         },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
         {
           from: 'src/pages/Content/content.styles.css',
           to: path.join(__dirname, 'build'),
           force: true,
         },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
         {
-          from: 'src/assets/img/icon-128.png',
-          to: path.join(__dirname, 'build'),
+          from: 'src/assets/img/*.png',
+          to: path.join(__dirname, 'build/[name].[ext]'),
           force: true,
         },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: 'src/assets/img/icon-16.png',
-          to: path.join(__dirname, 'build'),
-          force: true,
-        },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: 'src/assets/img/icon-34.png',
-          to: path.join(__dirname, 'build'),
-          force: true,
-        },
-      ],
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
         {
           from: 'src/assets/emotes/',
           to: path.join(__dirname, 'build/emotes'),
           force: true,
+        },
+        {
+          from: 'src/testpage',
+          to: path.join(__dirname, 'build'),
+          force: true,
+          filter: () => env.NODE_ENV === 'development',
         },
       ],
     }),
