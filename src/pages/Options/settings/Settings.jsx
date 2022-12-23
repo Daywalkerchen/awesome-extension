@@ -32,8 +32,8 @@ const Settings = () => {
 
   return (
     <div className="settings">
-      <input className="checkbox" type="checkbox" checked={!!enableAlternates} onChange={handleChange} />
-      <label>Enable alternate replacement tags</label>
+      <input id="enable-alternatives" className="checkbox" type="checkbox" checked={!!enableAlternates} onChange={handleChange} />
+      <label for="enable-alternatives">Enable alternate replacement tags</label>
       <div className="actions">
         <button className="button" onClick={resetCounter}>
           Reset Count

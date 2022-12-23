@@ -1,7 +1,9 @@
 <html>
-    <body>
-        <button onclick="addItem()">Add :blobdance:</button>
-        <div id="itemsToReplace">
+
+<body>
+    <section>
+        <h2>Simple static replacements</h2>
+        <div>
             <ul>
                 <li>
                     <a>link :blobdance:</a>
@@ -9,19 +11,39 @@
                 <li>
                     <span>span :blobdance:</span>
                 </li>
-                <li>                    
+                <li>
                     <p>paragraph :blobdance:</p>
                 </li>
-                <li>                    
+                <li>
                     <div class="data-list-row-item-content">div.data-list-row-item-content :blobdance:</div>
                 </li>
-            </ul> 
+            </ul>
         </div>
-    </body>
-    <script>
-        function addItem(){
-            const item = document.createElement("ul");  
-            item.innerHTML = `<li>
+    </section>
+    <section>
+        <h2>Dynamic replacements</h2>
+        <button onclick="addItem()">Add :blobdance:</button>
+        <div id="itemsToReplace">
+        </div>
+    </section>
+    <section>
+        <h2 title="Matching tag is contained directly and indirectly as an html attribute. See issue #32">Special static replacements</h2>
+        <p>
+            <span title=":blobdance:">
+                :blobdance:
+            </span>
+            Something c8731aa4-b90f-4482 84c2-65b9be019cd5
+            <span title=":blobdance:">
+                :blobdance:
+            </span>
+            c8731aa4-b90f-4482 84c2-65b9be019cd5
+        </p>
+    </section>
+</body>
+<script>
+    function addItem() {
+        const item = document.createElement("ul");
+        item.innerHTML = `<li>
                     <a>zelda :blobdance:</a>
                 </li>
                 <li>
@@ -34,7 +56,8 @@
                     <div class="data-list-row-item-content">data-list-row-item-content :blobdance:</div>
                 </li>`;
 
-            document.getElementById("itemsToReplace").appendChild(item);
-        }
-    </script>
+        document.getElementById("itemsToReplace").appendChild(item);
+    }
+</script>
+
 </html>

@@ -43,6 +43,28 @@ const getEmotesThatAreUsedInElement = (element, useAlternatives) => {
   });
 };
 
+const emoteToSpan = (emote) => {
+  const span = document.createElement('span');
+  span.className = 'replaced-emote';
+  span.style = `background-image: url(${emote.url})`;
+  span.title = emote.tag;
+  span.innerText = 'replaced_emote';
+  return span;
+};
+
+const splitTextNodeToEmoteNodes = (nodeText, emote) => {
+  const textsWithoutEmote = nodeText.split(emote.tag);
+  return textsWithoutEmote
+    .map((text) => document.createTextNode(text))
+    .reduce((previousValue, currentValue, currentIndex, array) => {
+      previousValue.push(currentValue);
+      if (currentIndex < array.length - 1) {
+        previousValue.push(emoteToSpan(emote));
+      }
+      return previousValue;
+    }, []);
+};
+
 const replaceEmotesInElements = (candidates, useAlternatives) => {
   if (!candidates.length) {
     return 0;
@@ -62,11 +84,18 @@ const replaceEmotesInElements = (candidates, useAlternatives) => {
     .map(({ element, emotes }) =>
       emotes
         .map((emote) => {
-          const numOfPlaceholders = element.innerHTML.split(emote.tag).length - 1;
-          element.innerHTML = element.innerHTML.replaceAll(
-            emote.tag,
-            `<span class="replaced-emote" style="background-image: url(${emote.url})" title="${emote.tag}">replaced_emote</span>`
-          );
+          let numOfPlaceholders = 0;
+          [...element.childNodes].forEach((node) => {
+            if (!isTextNode(node)) {
+              return;
+            }
+            const newTextOrEmoteNodes = splitTextNodeToEmoteNodes(node.textContent, emote);
+            newTextOrEmoteNodes.forEach((newTextOrEmoteNode) => {
+              element.insertBefore(newTextOrEmoteNode, node);
+            });
+            numOfPlaceholders += Math.floor(newTextOrEmoteNodes.length / 2);
+            element.removeChild(node);
+          });
           return numOfPlaceholders;
         })
         .reduce(sum)
