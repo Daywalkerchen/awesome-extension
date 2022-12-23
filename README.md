@@ -27,12 +27,21 @@
 
 ## Commands
 
-```bash
-# Run the dev server. Hot module replacement is active. Test page is accessible
+Run the dev server. Hot module replacement is active. Test page is accessible:
+
+```
 npm run start
-# Build the extension (for production). Hot module replacement is inactive. Test page is not accessible
+```
+
+Build the extension (for production). Hot module replacement is inactive. Test page is not accessible:
+
+```
 npm run build
-# Reformat code
+```
+
+Reformat code:
+
+```
 npm run prettier
 ```
 
