@@ -11,7 +11,7 @@ const Emote = ({ emote }) => {
 
   return (
     <div onClick={onClick} className="emote">
-      <img src={emote.url} title={tag}  alt={tag}/>
+      <img src={emote.url} title={tag} alt={tag} />
     </div>
   );
 };
