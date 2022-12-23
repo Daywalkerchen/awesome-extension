@@ -1,14 +1,21 @@
+//region Imports
+import seedrandom from 'seedrandom';
+//endregion
+
 export const componentName = 'BetterBigBlueButton';
 
-const findShuffledUserNames = () => {
+const findShuffledUserNames = (rngGen) => {
   const users = document.querySelectorAll('[data-test="userListItem"] div div span span, [data-test="userListItemCurrent"] div div span span');
-  return [...users].map((it) => it.innerText.trim()).sort(() => 0.5 - Math.random());
+  return [...users].map((it) => it.innerText.trim()).sort(() => 0.5 - rngGen());
 };
 
 const createDailySchedule = () => {
-  const usernames = findShuffledUserNames();
+  const day = new Date().toISOString().slice(0, 10);
+  const rngGen = seedrandom(day);
 
-  return ['Daily ' + new Date().toISOString().slice(0, 10) + ':', ':noted:', ...usernames, ':suss:', 'Nachbrenner'].join('\n');
+  const usernames = findShuffledUserNames(rngGen);
+
+  return ['Daily ' + day + ':', ':noted:', ...usernames, ':suss:', 'Nachbrenner'].join('\n');
 };
 
 export const insertDailySchedule = () => {
