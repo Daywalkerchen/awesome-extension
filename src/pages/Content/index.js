@@ -1,7 +1,9 @@
 // region Imports
 import { componentName as replacerComponentName, replacePlaceholder } from './modules/emotes/emoteInserter';
 import { componentName as bbbbComponentName, insertDailySchedule } from './modules/better-big-blue-button/betterBigBlueButton';
+import { componentName as emopComponentName, initEmotePickerOnChatBoxes } from './modules/emote-picker-on-chat-boxes/emotePickerOnChatBoxes';
 import { BBBB_INSERT_DAILY_SCHEDULE_MESSAGE } from '../../const/messages';
+
 // endregion
 
 // region helper
@@ -16,14 +18,15 @@ const logError = (component, error) => {
   }
 };
 
+const logErrorAndDisconnect = (componentName, observer, error) => {
+  logError(componentName, error);
+  observer.disconnect();
+};
 // endregion
 
-//region emote replacement
+// region mutation observation
 
-const initGlobalEmotes = async () => {
-  console.log('[CONTENT] Initial replacement');
-  await replacePlaceholder();
-
+const initMutationObserver = async () => {
   // Throttle replacement if changes occur too fast.
   let lastUpdate = new Date();
   let throttledTimeout;
@@ -42,16 +45,24 @@ const initGlobalEmotes = async () => {
     }
   };
 
-  const mutationObserver = new MutationObserver(() =>
-    throttledUpdate(() =>
-      replacePlaceholder().catch((error) => {
-        logError(replacerComponentName, error);
-        mutationObserver.disconnect();
-      })
-    )
+  const observer = new MutationObserver(() =>
+    throttledUpdate(() => {
+      replacePlaceholder().catch((e) => logErrorAndDisconnect(replacerComponentName, observer, e));
+
+      initEmotePicker().catch((e) => logErrorAndDisconnect(emopComponentName, observer, e));
+    })
   );
 
-  mutationObserver.observe(document.body, { childList: true, subtree: true });
+  observer.observe(document.body, { childList: true, subtree: true });
+};
+
+// endregion
+
+//region emote replacement
+
+const initGlobalEmotes = async () => {
+  console.log('[CONTENT] Initial replacement');
+  await replacePlaceholder();
 };
 
 // endregion
@@ -59,21 +70,35 @@ const initGlobalEmotes = async () => {
 // region better big blue button
 
 const initBetterBigBlueButton = async () => {
-  chrome.runtime.onMessage.addListener((request) => {
-    if (request === BBBB_INSERT_DAILY_SCHEDULE_MESSAGE) {
-      insertDailySchedule();
-    }
-  });
+  // todo exact urls to enable BBBB to settings
+  if (document.URL.startsWith('https://conference.')) {
+    chrome.runtime.onMessage.addListener((request) => {
+      if (request === BBBB_INSERT_DAILY_SCHEDULE_MESSAGE) {
+        insertDailySchedule();
+      }
+    });
+  }
+};
+
+// endregion
+
+// region emote picker on chat boxes
+
+const initEmotePicker = async () => {
+  // todo exact urls to enable rocket to settings
+  if (document.URL.startsWith('https://rocket.')) {
+    initEmotePickerOnChatBoxes();
+  }
 };
 
 // endregion
 
 window.onload = () => {
   initGlobalEmotes().catch((error) => logError(replacerComponentName, error));
+  initBetterBigBlueButton().catch((error) => logError(bbbbComponentName, error));
+  initEmotePicker().catch((error) => logError(emopComponentName, error));
 
-  // todo exact urls to enable BBBB to settings
-  if (document.URL.startsWith('https://conference.')) {
-    initBetterBigBlueButton().catch((error) => logError(bbbbComponentName, error));
-  }
+  initMutationObserver();
 };
+
 console.log('[CONTENT] Script loaded successfully');

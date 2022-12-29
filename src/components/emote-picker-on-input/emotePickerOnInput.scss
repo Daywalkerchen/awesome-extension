@@ -1,0 +1,10 @@
+#emote-picker {
+  display: inline-flex;
+  margin-right: -0.8rem;
+  margin-left: 0.1rem;
+  z-index: 100;
+  img {
+    cursor: pointer;
+    width: 28px;
+  }
+}
