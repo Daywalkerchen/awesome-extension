@@ -1,0 +1,11 @@
+{
+  "extends": ["plugin:react/recommended"],
+  "parser": "@babel/eslint-parser",
+  "plugins": ["react"],
+  "globals": {
+    "chrome": "readonly"
+  },
+  "parserOptions": {
+    "requireConfigFile": false
+  }
+}
