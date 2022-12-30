@@ -1,7 +1,7 @@
 //region Imports
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EmotePickerOnInput from '../../../../components/emote-picker-on-input/emotePickerOnInput';
+import EmotePickerOnInput from '../../../../components/emote-picker-on-input/EmotePickerOnInput';
 import './emotePickerOnChatBoxes.scss';
 //endregion
 
@@ -11,11 +11,13 @@ export const initEmotePickerOnChatBoxes = () => {
   // currently, only rocket
   const emotePickerId = 'emote-picker';
   const container = document.getElementById(emotePickerId);
+
   if (container) {
     return;
   }
 
   const rcMessageBoxes = document.getElementsByClassName('rc-message-box__container');
+
   if (!rcMessageBoxes.length) {
     console.log(`[${componentName}] InputEmotePicker rc-message-box__container not found`);
     return;
@@ -23,12 +25,15 @@ export const initEmotePickerOnChatBoxes = () => {
 
   const chatBoxWrapper = rcMessageBoxes[0];
   const chatBoxes = document.getElementsByClassName('rc-message-box__textarea');
+
   if (!chatBoxes.length) {
     console.log(`[${componentName}] InputEmotePicker rc-message-box__textarea not found`);
     return;
   }
+
   const chatBox = chatBoxes[0];
   const emotePicker = document.createElement('div');
+
   emotePicker.id = emotePickerId;
   chatBoxWrapper.prepend(emotePicker);
 
