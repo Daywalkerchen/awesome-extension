@@ -1,11 +1,13 @@
-const webpack = require('webpack'),
-  path = require('path'),
-  fileSystem = require('fs-extra'),
-  env = require('./utils/env'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin');
+// region Imports
+const webpack = require('webpack');
+const path = require('path');
+const fileSystem = require('fs-extra');
+const env = require('./env');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// endregion
 
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
@@ -13,7 +15,7 @@ const alias = {
   'react-dom': '@hot-loader/react-dom',
 };
 
-// load the secrets
+// Load secrets
 const secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js');
 
 const fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2'];
@@ -44,9 +46,7 @@ const options = {
   module: {
     rules: [
       {
-        // look for .css or .scss files
         test: /\.(css|scss)$/,
-        // in the `src` directory
         use: [
           {
             loader: 'style-loader',
@@ -94,7 +94,6 @@ const options = {
   plugins: [
     new CleanWebpackPlugin({ verbose: false }),
     new webpack.ProgressPlugin(),
-    // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
     new CopyWebpackPlugin({
       patterns: [
@@ -102,8 +101,8 @@ const options = {
           from: 'src/manifest.json',
           to: path.join(__dirname, 'build'),
           force: true,
-          transform: function (content, path) {
-            // generates the manifest file using the package.json information
+          transform: (content) => {
+            // Generates the manifest file using the package.json information
             return Buffer.from(
               JSON.stringify({
                 description: process.env.npm_package_description,
@@ -129,7 +128,7 @@ const options = {
           force: true,
         },
         {
-          from: 'src/testpage',
+          from: 'src/test-page',
           to: path.join(__dirname, 'build'),
           force: true,
           filter: () => env.NODE_ENV === 'development',
