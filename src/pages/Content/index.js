@@ -70,7 +70,6 @@ const initGlobalEmotes = async () => {
 // region better big blue button
 
 const initBetterBigBlueButton = async () => {
-  // todo exact urls to enable BBBB to settings
   if (document.URL.startsWith('https://conference.')) {
     chrome.runtime.onMessage.addListener((request) => {
       if (request === BBBB_INSERT_DAILY_SCHEDULE_MESSAGE) {
@@ -85,7 +84,6 @@ const initBetterBigBlueButton = async () => {
 // region emote picker on chat boxes
 
 const initEmotePicker = async () => {
-  // todo exact urls to enable rocket to settings
   if (document.URL.startsWith('https://rocket.')) {
     initEmotePickerOnChatBoxes();
   }

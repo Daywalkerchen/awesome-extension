@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import EmotePickerOnInput from '../../../../components/emote-picker-on-input/emotePickerOnInput';
+import './emotePickerOnChatBoxes.scss';
 //endregion
 
 export const componentName = 'EmotePickerOnChatBoxes';
