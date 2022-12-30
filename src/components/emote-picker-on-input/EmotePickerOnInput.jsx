@@ -12,7 +12,7 @@ const EmotePickerOnInput = ({ inputElem }) => {
   };
 
   return (
-    <Popup className="input-emote-picker" trigger={<img src={src} alt="better emotes" />} position="top right">
+    <Popup className="input-emote-picker" trigger={<img src={src} alt="better emotes" />} position="top left">
       <EmotePicker onClick={onClick} />
     </Popup>
   );
