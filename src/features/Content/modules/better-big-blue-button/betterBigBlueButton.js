@@ -5,7 +5,9 @@ import seedrandom from 'seedrandom';
 export const componentName = 'BetterBigBlueButton';
 
 const findShuffledUserNames = (rngGen) => {
-  const users = document.querySelectorAll('[data-test="userListItem"] div div span span, [data-test="userListItemCurrent"] div div span span');
+  const users = document.querySelectorAll(
+    '[data-test="userListItem"] div div span span, [data-test="userListItemCurrent"] div div span span[position="bottom"]'
+  );
   return [...users].map((it) => it.innerText.trim()).sort(() => 0.5 - rngGen());
 };
 
