@@ -119,7 +119,7 @@ const options = {
         },
         {
           from: 'src/assets/img/*.png',
-          to: path.join(__dirname, 'build/[name].[ext]'),
+          to: path.join(__dirname, 'build/[name][ext]'),
           force: true,
         },
         {
