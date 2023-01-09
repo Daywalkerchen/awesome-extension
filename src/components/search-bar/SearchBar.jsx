@@ -12,7 +12,7 @@ const SearchBar = ({ onSetSearchString }) => {
     <div className="search-bar">
       <input
         type="text"
-        placeholder="Suche"
+        placeholder="Search"
         autoFocus
         value={searchString}
         autoComplete="off"
