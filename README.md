@@ -48,3 +48,7 @@ npm run prettier
 ## Resources
 
 All emotes have been downloaded from https://cdn.betterttv.net
+
+## License
+
+The code is available under the [MIT](LICENSE) license.
