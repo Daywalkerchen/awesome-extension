@@ -117,4 +117,8 @@ export const EMOTES = [
     tags: [':blobsaber:'],
     url: `${emotesBasePath}/blobsaber.gif`,
   },
+  {
+    tags: [':technoviking:'],
+    url: `${emotesBasePath}/technoviking.gif`,
+  },
 ];
