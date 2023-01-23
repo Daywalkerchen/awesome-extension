@@ -59,7 +59,7 @@ export const EMOTES = [
   },
   {
     tags: [':sussy:'],
-    url: `${emotesBasePath}/sussy.gif`,
+    url: `${emotesBasePath}/sussy.webp`,
   },
   {
     tags: [':amongus:'],
@@ -83,7 +83,7 @@ export const EMOTES = [
   },
   {
     tags: [':pikachudance:'],
-    url: `${emotesBasePath}/pikachudance.gif`,
+    url: `${emotesBasePath}/pikachudance.webp`,
   },
   {
     tags: [':weewoo:'],
