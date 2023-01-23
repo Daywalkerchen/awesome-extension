@@ -99,7 +99,7 @@ export const EMOTES = [
   {
     tags: [':noted:'],
     url: `${emotesBasePath}/noted.gif`,
-    keywords: ['alarm'],
+    keywords: ['pepe'],
   },
   {
     tags: [':sadge:'],
@@ -149,6 +149,6 @@ export const EMOTES = [
   {
     tags: [':technoviking:'],
     url: `${emotesBasePath}/technoviking.gif`,
-    keywords: [],
+    keywords: ['legend'],
   },
 ];
