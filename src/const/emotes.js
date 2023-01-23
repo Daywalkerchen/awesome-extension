@@ -41,6 +41,10 @@ export const EMOTES = [
     keywords: ['animal'],
   },
   {
+    tags: [':pugpls:'],
+    url: `${emotesBasePath}/pugpls.webp`,
+  },
+  {
     tags: [':popcat:'],
     url: `${emotesBasePath}/popcat.gif`,
     keywords: ['animal'],
@@ -64,6 +68,10 @@ export const EMOTES = [
     tags: [':confused_dog:'],
     url: `${emotesBasePath}/confused_dog.gif`,
     keywords: ['animal'],
+  },
+  {
+    tags: [':ooooo:'],
+    url: `${emotesBasePath}/ooooo.webp`,
   },
   {
     tags: [':suss:'],
@@ -139,6 +147,10 @@ export const EMOTES = [
     keywords: ['human'],
   },
   {
+    tags: [':5head:'],
+    url: `${emotesBasePath}/5head.webp`,
+  },
+  {
     tags: [':couldyounot:'],
     url: `${emotesBasePath}/couldyounot.gif`,
     keywords: ['human'],
@@ -174,5 +186,21 @@ export const EMOTES = [
   {
     tags: [':eyes:'],
     url: `${emotesBasePath}/eyes.webp`,
+  },
+  {
+    tags: [':cryingcat:'],
+    url: `${emotesBasePath}/cryingcat.webp`,
+  },
+  {
+    tags: [':aquatriggered:'],
+    url: `${emotesBasePath}/aquatriggered.webp`,
+  },
+  {
+    tags: [':ayaya:'],
+    url: `${emotesBasePath}/ayaya.webp`,
+  },
+  {
+    tags: [':chikayo:'],
+    url: `${emotesBasePath}/chikayo.webp`,
   },
 ];
