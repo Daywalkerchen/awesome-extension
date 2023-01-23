@@ -10,7 +10,7 @@ To get an overview of the project, read the [README](README.md).
 
 #### Create a new issue
 
-If you spot a problem with the extension, search if an issue already exists. If a related issue doesn't exist, you can open a new issue using a relevant issue form. 
+If you spot a problem with the extension, search if an issue already exists. If a related issue doesn't exist, you can open a new issue using a relevant issue form.
 
 #### Solve an issue
 
@@ -33,11 +33,13 @@ Commit the changes once you are happy with them.
 ### Pull Request
 
 When you're finished with the changes, create a pull request, also known as a PR.
-- Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request. 
+
+- Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
 - Don't forget to link PR to issue if you are solving one.
 - Enable the checkbox to allow maintainer edits so the branch can be updated for a merge.
 
 Once you submit your PR, a team member will review your proposal. We may ask questions or request additional information.
+
 - We may ask for changes to be made before a PR can be merged, either using suggested change or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
 - As you update your PR and apply changes, mark each conversation as resolved.
 
@@ -45,4 +47,4 @@ Once you submit your PR, a team member will review your proposal. We may ask que
 
 :tada::tada: Congratulations :tada::tada:
 
-Once your PR is merged, your contributions will be publicly visible. 
+Once your PR is merged, your contributions will be publicly visible.

@@ -35,32 +35,37 @@ const replacementElementCandidates = () => {
   ];
 };
 
-const getEmotesThatAreUsedInElement = (element, useAlternatives) => {
-  return EMOTES.flatMap((emote) => {
+const getEmotesThatAreUsedInElement = (element, useAlternatives) =>
+  EMOTES.flatMap((emote) => {
     const emoteTags = useAlternatives ? emote.tags : emote.tags.slice(0, 1);
     const foundTags = emoteTags.filter((tag) => element.innerText.includes(tag));
+
     return foundTags.map((tag) => ({ tag: tag, url: emote.url }));
   });
-};
 
 const emoteToSpan = (emote) => {
   const span = document.createElement('span');
+
   span.className = 'replaced-emote';
   span.style = `background-image: url(${emote.url})`;
   span.title = emote.tag;
   span.innerText = 'replaced_emote';
+
   return span;
 };
 
 const splitTextNodeToEmoteNodes = (nodeText, emote) => {
   const textsWithoutEmote = nodeText.split(emote.tag);
+
   return textsWithoutEmote
     .map((text) => document.createTextNode(text))
     .reduce((previousValue, currentValue, currentIndex, array) => {
       previousValue.push(currentValue);
+
       if (currentIndex < array.length - 1) {
         previousValue.push(emoteToSpan(emote));
       }
+
       return previousValue;
     }, []);
 };
@@ -76,6 +81,7 @@ const replaceEmotesInElements = (candidates, useAlternatives) => {
       emotes: getEmotesThatAreUsedInElement(element, useAlternatives),
     }))
     .filter((pair) => pair.emotes.length > 0);
+
   if (!replaceableElements.length) {
     return 0;
   }
@@ -88,10 +94,13 @@ const replaceEmotesInElements = (candidates, useAlternatives) => {
             .filter((node) => isTextNode(node))
             .map((node) => {
               const newTextOrEmoteNodes = splitTextNodeToEmoteNodes(node.textContent, emote);
+
               newTextOrEmoteNodes.forEach((newTextOrEmoteNode) => {
                 element.insertBefore(newTextOrEmoteNode, node);
               });
+
               element.removeChild(node);
+
               return Math.floor(newTextOrEmoteNodes.length / 2);
             })
             .reduce(sum, 0)

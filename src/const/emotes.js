@@ -26,6 +26,10 @@ export const EMOTES = [
     url: `${emotesBasePath}/vibebunny.gif`,
   },
   {
+    tags: [':kirby:'],
+    url: `${emotesBasePath}/kirby.webp`,
+  },
+  {
     tags: [':bongocat:'],
     url: `${emotesBasePath}/bongocat.gif`,
   },
@@ -54,6 +58,10 @@ export const EMOTES = [
     url: `${emotesBasePath}/suss.gif`,
   },
   {
+    tags: [':sussy:'],
+    url: `${emotesBasePath}/sussy.gif`,
+  },
+  {
     tags: [':amongus:'],
     url: `${emotesBasePath}/amongus.gif`,
   },
@@ -72,6 +80,10 @@ export const EMOTES = [
   {
     tags: [':charmander:'],
     url: `${emotesBasePath}/charmander.gif`,
+  },
+  {
+    tags: [':pikachudance:'],
+    url: `${emotesBasePath}/pikachudance.gif`,
   },
   {
     tags: [':weewoo:'],
@@ -120,5 +132,17 @@ export const EMOTES = [
   {
     tags: [':technoviking:'],
     url: `${emotesBasePath}/technoviking.gif`,
+  },
+  {
+    tags: [':nogodno:'],
+    url: `${emotesBasePath}/nogodno.webp`,
+  },
+  {
+    tags: [':bonk:'],
+    url: `${emotesBasePath}/bonk.webp`,
+  },
+  {
+    tags: [':eyes:'],
+    url: `${emotesBasePath}/eyes.webp`,
   },
 ];
