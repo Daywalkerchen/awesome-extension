@@ -41,8 +41,8 @@ export const EMOTES = [
     keywords: ['animal'],
   },
   {
-    tags: [':pugpls:'],
-    url: `${emotesBasePath}/pugpls.webp`,
+    tags: [':pugdance:'],
+    url: `${emotesBasePath}/pugdance.webp`,
   },
   {
     tags: [':popcat:'],
@@ -192,15 +192,15 @@ export const EMOTES = [
     url: `${emotesBasePath}/cryingcat.webp`,
   },
   {
-    tags: [':aquatriggered:'],
-    url: `${emotesBasePath}/aquatriggered.webp`,
+    tags: [':triggered:'],
+    url: `${emotesBasePath}/triggered.webp`,
   },
   {
     tags: [':ayaya:'],
     url: `${emotesBasePath}/ayaya.webp`,
   },
   {
-    tags: [':chikayo:'],
-    url: `${emotesBasePath}/chikayo.webp`,
+    tags: [':chika:'],
+    url: `${emotesBasePath}/chika.webp`,
   },
 ];
