@@ -2,7 +2,9 @@
 import seedrandom from 'seedrandom';
 //endregion
 
+//region Constants
 export const componentName = 'BetterBigBlueButton';
+//endregion
 
 const findShuffledUserNames = (rngGen) => {
   const users = document.querySelectorAll(

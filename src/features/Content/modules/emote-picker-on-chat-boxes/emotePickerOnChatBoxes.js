@@ -5,7 +5,9 @@ import EmotePickerOnInput from '../../../../components/emote-picker-on-input/Emo
 import './emotePickerOnChatBoxes.scss';
 //endregion
 
+//region Constants
 export const componentName = 'EmotePickerOnChatBoxes';
+//endregion
 
 export const initEmotePickerOnChatBoxes = () => {
   // currently, only rocket

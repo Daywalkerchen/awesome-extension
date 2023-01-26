@@ -18,7 +18,12 @@ const EmotePickerOnInput = ({ inputElem }) => {
   };
 
   return (
-    <Popup contentStyle={{ minHeight: '230px' }} className="input-emote-picker" trigger={<img src={src} alt="better emotes" />} position="top left">
+    <Popup
+      contentStyle={{ minHeight: '230px' }}
+      draggable="false"
+      className="input-emote-picker"
+      trigger={<img src={src} alt="better emotes" />}
+      position="top left">
       <SearchBar onSetSearchString={onSetSearchString} />
       <EmotePicker searchString={searchString} onClick={onClick} />
     </Popup>

@@ -4,12 +4,12 @@ import { COLORS } from '../../const/colors';
 
 const FORMATTER = Intl.NumberFormat('en', { notation: 'compact' });
 
-chrome.storage.onChanged.addListener((changes) => {
+chrome.storage.onChanged.addListener(async (changes) => {
   const replaceCounter = changes.replacedPlaceholder?.newValue || 0;
 
   const color = COLORS[Math.min(Math.trunc(replaceCounter).toString().length, COLORS.length) - 1];
   const text = FORMATTER.format(replaceCounter);
 
-  chrome.action.setBadgeBackgroundColor({ color });
-  chrome.action.setBadgeText({ text });
+  await chrome.action.setBadgeBackgroundColor({ color });
+  await chrome.action.setBadgeText({ text });
 });
