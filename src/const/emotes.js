@@ -117,6 +117,11 @@ export const EMOTES = [
     keywords: ['alarm'],
   },
   {
+    tags: [':review:'],
+    url: `${emotesBasePath}/review.gif`,
+    keywords: ['pepe'],
+  },
+  {
     tags: [':noted:'],
     url: `${emotesBasePath}/noted.gif`,
     keywords: ['pepe'],
