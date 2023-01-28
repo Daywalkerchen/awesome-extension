@@ -84,9 +84,7 @@ const initBetterBigBlueButton = async () => {
 // region emote picker on chat boxes
 
 const initEmotePicker = async () => {
-  if (document.URL.startsWith('https://rocket.')) {
-    initEmotePickerOnChatBoxes();
-  }
+  initEmotePickerOnChatBoxes();
 };
 
 // endregion
