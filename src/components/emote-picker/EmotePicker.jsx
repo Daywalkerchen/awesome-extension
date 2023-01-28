@@ -18,11 +18,7 @@ const searchInArray = (arrayOfStrings, lowerSearch) => {
 
 /**
  * @param {string | undefined} searchString
- * @returns { {
- *   tags: string[];
- *   url: string;
- *   keywords: string[];
- * } }
+ * @returns {({keywords: [string], url: string, tags: string[]}|{keywords: [string], url: string, tags: [string]}|{keywords: [string], url: string, tags: [string]}|{keywords: [string], url: string, tags: [string]}|{keywords: [string], url: string, tags: [string]})[]}
  */
 const searchEmotes = (searchString) => {
   const lowerSearch = searchString?.toLowerCase();

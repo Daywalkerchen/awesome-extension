@@ -1,4 +1,9 @@
 #emote-picker {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   display: inline-flex;
   margin-right: -0.8rem;
   margin-left: 0.1rem;
@@ -6,6 +11,11 @@
   padding-left: 2px;
 
   img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     cursor: pointer;
     width: 26px;
   }

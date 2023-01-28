@@ -15,10 +15,10 @@ chrome.contextMenus.removeAll(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId !== scheduleContextMenuId) {
     return;
   }
 
-  chrome.tabs.sendMessage(tab.id, BBBB_INSERT_DAILY_SCHEDULE_MESSAGE);
+  await chrome.tabs.sendMessage(tab.id, BBBB_INSERT_DAILY_SCHEDULE_MESSAGE);
 });
