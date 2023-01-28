@@ -18,27 +18,56 @@ export const initEmotePickerOnChatBoxes = () => {
     return;
   }
 
-  const rcMessageBoxes = document.getElementsByClassName('rc-message-box__container');
+  if (document.URL.startsWith('https://rocket.')) {
+    const rcMessageBoxes = document.getElementsByClassName('rc-message-box__container');
 
-  if (!rcMessageBoxes.length) {
-    console.log(`[${componentName}] InputEmotePicker rc-message-box__container not found`);
-    return;
+    if (!rcMessageBoxes.length) {
+      console.log(`[${componentName}] InputEmotePicker rc-message-box__container not found`);
+      return;
+    }
+
+    const chatBoxWrapper = rcMessageBoxes[0];
+    const chatBoxes = document.getElementsByClassName('rc-message-box__textarea');
+
+    if (!chatBoxes.length) {
+      console.log(`[${componentName}] InputEmotePicker rc-message-box__textarea not found`);
+
+      return null;
+    }
+
+    const chatBox = chatBoxes[0];
+    const emotePicker = document.createElement('div');
+
+    emotePicker.id = emotePickerId;
+    chatBoxWrapper.prepend(emotePicker);
+
+    ReactDOM.render(<EmotePickerOnInput inputElem={chatBox} />, document.getElementById(emotePickerId));
+    console.log(`[${componentName}] injected`);
   }
 
-  const chatBoxWrapper = rcMessageBoxes[0];
-  const chatBoxes = document.getElementsByClassName('rc-message-box__textarea');
+  if (document.URL.startsWith('https://conference.flavia-it.')) {
+    const bbbMessageBoxes = document.getElementsByClassName('sc-hYfoSM lePtnL');
 
-  if (!chatBoxes.length) {
-    console.log(`[${componentName}] InputEmotePicker rc-message-box__textarea not found`);
-    return;
+    if (!bbbMessageBoxes.length) {
+      console.log(`[${componentName}] InputEmotePicker sc-hYfoSM lePtnL not found`);
+      return;
+    }
+
+    const chatBoxWrapper = bbbMessageBoxes[0];
+    const chatBox = document.getElementById('message-input');
+
+    if (!chatBox) {
+      console.log(`[${componentName}] InputEmotePicker message-input not found`);
+
+      return null;
+    }
+
+    const emotePicker = document.createElement('div');
+
+    emotePicker.id = emotePickerId;
+    chatBoxWrapper.append(emotePicker);
+
+    ReactDOM.render(<EmotePickerOnInput inputElem={chatBox} />, document.getElementById(emotePickerId));
+    console.log(`[${componentName}] injected`);
   }
-
-  const chatBox = chatBoxes[0];
-  const emotePicker = document.createElement('div');
-
-  emotePicker.id = emotePickerId;
-  chatBoxWrapper.prepend(emotePicker);
-
-  ReactDOM.render(<EmotePickerOnInput inputElem={chatBox} />, document.getElementById(emotePickerId));
-  console.log(`[${componentName}] injected`);
 };

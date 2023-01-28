@@ -9,6 +9,7 @@
   margin-left: 0.1rem;
   z-index: 100;
   padding-left: 2px;
+  align-items: center;
 
   img {
     user-select: none;
@@ -18,5 +19,6 @@
     -ms-user-select: none;
     cursor: pointer;
     width: 26px;
+    height: 26px;
   }
 }
