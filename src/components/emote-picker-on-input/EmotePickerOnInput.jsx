@@ -8,7 +8,7 @@ import SearchBar from '../search-bar/SearchBar';
 const EmotePickerOnInput = ({ inputElem }) => {
   const [searchString, setSearchString] = useState('');
 
-  const src = chrome.runtime.getURL('icon-34.png');
+  const src = chrome.runtime.getURL('icon-28.png');
 
   const onClick = (tag) => {
     inputElem.value += tag;
