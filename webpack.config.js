@@ -113,11 +113,6 @@ const options = {
           },
         },
         {
-          from: 'src/features/Content/content.styles.css',
-          to: path.join(__dirname, 'build'),
-          force: true,
-        },
-        {
           from: 'src/assets/img/*.png',
           to: path.join(__dirname, 'build/[name][ext]'),
           force: true,
