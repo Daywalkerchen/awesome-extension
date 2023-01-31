@@ -10,6 +10,15 @@
     </div>
 </div>
 
+## Install
+
+1. Download the latest version of the extension https://github.com/Daywalkerchen/awesome-extension/releases -> Assets -> `build.zip`
+2. Unzip `build.zip`
+3. Open `chrome://extensions` in Chrome (or similar)
+4. Check `Developer mode`
+5. Click on `Load unpacked extension`
+6. Select the `build/` folder.
+
 ## Getting Started
 
 1. Check if your [Node.js](https://nodejs.org/) version is >= **14**.
