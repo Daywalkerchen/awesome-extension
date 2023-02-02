@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from 'react-dom';
-
 import Panel from './Panel';
 import './index.css';
+import { createRoot } from 'react-dom/client';
 
-render(<Panel />, window.document.querySelector('#app-container'));
+const container = document.getElementById('app-container');
+const root = createRoot(container);
 
-if (module.hot) module.hot.accept();
+root.render(<Panel />);

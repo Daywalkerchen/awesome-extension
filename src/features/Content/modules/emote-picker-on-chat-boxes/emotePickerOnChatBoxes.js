@@ -1,6 +1,6 @@
 //region Imports
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import EmotePickerOnInput from '../../../../components/emote-picker-on-input/EmotePickerOnInput';
 import './emotePickerOnChatBoxes.scss';
 //endregion
@@ -41,7 +41,11 @@ export const initEmotePickerOnChatBoxes = () => {
     emotePicker.id = emotePickerId;
     chatBoxWrapper.prepend(emotePicker);
 
-    ReactDOM.render(<EmotePickerOnInput inputElem={chatBox} />, document.getElementById(emotePickerId));
+    const container = document.getElementById('emotePickerId');
+    const root = createRoot(container);
+
+    root.render(<EmotePickerOnInput inputElem={chatBox} />);
+
     console.log(`[${componentName}] injected`);
   }
 
@@ -67,7 +71,11 @@ export const initEmotePickerOnChatBoxes = () => {
     emotePicker.id = emotePickerId;
     chatBoxWrapper.append(emotePicker);
 
-    ReactDOM.render(<EmotePickerOnInput inputElem={chatBox} />, document.getElementById(emotePickerId));
+    const container = document.getElementById('emotePickerId');
+    const root = createRoot(container);
+
+    root.render(<EmotePickerOnInput inputElem={chatBox} />);
+
     console.log(`[${componentName}] injected`);
   }
 };

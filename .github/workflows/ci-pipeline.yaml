@@ -19,8 +19,6 @@ jobs:
       with:
         node-version: 18.x
 
-    # Reason for --force https://github.com/gaearon/react-hot-loader/issues/1808
-    # see "as you really expected to use built-in solutions like fast-refresh"
     - name: Build
       run: |
         npm install --force
