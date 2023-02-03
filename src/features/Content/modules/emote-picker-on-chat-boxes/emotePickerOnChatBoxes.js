@@ -41,7 +41,7 @@ export const initEmotePickerOnChatBoxes = () => {
     emotePicker.id = emotePickerId;
     chatBoxWrapper.prepend(emotePicker);
 
-    const container = document.getElementById('emotePickerId');
+    const container = document.getElementById(emotePickerId);
     const root = createRoot(container);
 
     root.render(<EmotePickerOnInput inputElem={chatBox} />);
