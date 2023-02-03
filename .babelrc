@@ -1,7 +1,5 @@
 {
-  "plugins": [
-    "react-hot-loader/babel"
-  ],
+  "plugins": [],
   "presets": [
     "@babel/preset-react"
   ]

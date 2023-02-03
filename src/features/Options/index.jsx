@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
-
+import { createRoot } from 'react-dom/client';
 import Options from './Options';
 
-render(<Options title={'Settings'} />, window.document.querySelector('#app-container'));
+const container = document.getElementById('app-container');
+const root = createRoot(container);
 
-if (module.hot) module.hot.accept();
+root.render(<Options title={'Settings'} />);

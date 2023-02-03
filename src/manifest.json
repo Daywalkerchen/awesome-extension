@@ -1,5 +1,6 @@
 {
   "manifest_version": 3,
+  "version": "1.0.8",
   "name": "Awesome Extension",
   "description": "Adds some awesome functions to your browser",
   "options_page": "options.html",

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 import EmotePicker from '../emote-picker/EmotePicker';
 import SearchBar from '../search-bar/SearchBar';
@@ -18,7 +16,7 @@ const EmotePickerOnInput = ({ inputElem }) => {
   };
 
   return (
-    <Popup
+    <div
       contentStyle={{ minHeight: '230px' }}
       draggable="false"
       className="input-emote-picker"
@@ -26,7 +24,7 @@ const EmotePickerOnInput = ({ inputElem }) => {
       position="top left">
       <SearchBar onSetSearchString={onSetSearchString} />
       <EmotePicker searchString={searchString} onClick={onClick} />
-    </Popup>
+    </div>
   );
 };
 
