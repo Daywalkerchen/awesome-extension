@@ -12,6 +12,11 @@ export const EMOTES = [
     keywords: ['blob', 'hyper'],
   },
   {
+    tags: [':blobsaber:'],
+    url: `${emotesBasePath}/blobsaber.gif`,
+    keywords: ['blob'],
+  },
+  {
     tags: [':birbrave:'],
     url: `${emotesBasePath}/birbrave.gif`,
     keywords: ['animal'],
@@ -19,6 +24,16 @@ export const EMOTES = [
   {
     tags: [':catjam:'],
     url: `${emotesBasePath}/catjam.gif`,
+    keywords: ['animal'],
+  },
+  {
+    tags: [':excuseme:'],
+    url: `${emotesBasePath}/excuseme.webp`,
+    keywords: ['animal'],
+  },
+  {
+    tags: [':meow:'],
+    url: `${emotesBasePath}/meow.webp`,
     keywords: ['animal'],
   },
   {
@@ -39,6 +54,11 @@ export const EMOTES = [
   {
     tags: [':kirby:'],
     url: `${emotesBasePath}/kirby.webp`,
+  },
+  {
+    tags: [':squidwarddance:'],
+    url: `${emotesBasePath}/squidwarddance.webp`,
+    keywords: ['dance', 'spongebob', 'squidward'],
   },
   {
     tags: [':bongocat:'],
@@ -159,6 +179,7 @@ export const EMOTES = [
   {
     tags: [':5head:'],
     url: `${emotesBasePath}/5head.webp`,
+    keywords: ['human'],
   },
   {
     tags: [':couldyounot:'],
@@ -166,7 +187,7 @@ export const EMOTES = [
     keywords: ['human'],
   },
   {
-    tags: [':derp:', ':menue:'],
+    tags: [':derp:', ':menue:', ':christopher:'],
     url: `${emotesBasePath}/derp.png`,
     keywords: [],
   },
@@ -176,41 +197,43 @@ export const EMOTES = [
     keywords: ['animal'],
   },
   {
-    tags: [':blobsaber:'],
-    url: `${emotesBasePath}/blobsaber.gif`,
-    keywords: ['blob'],
-  },
-  {
     tags: [':technoviking:'],
     url: `${emotesBasePath}/technoviking.gif`,
-    keywords: ['legend'],
+    keywords: ['legend', 'dance'],
   },
   {
     tags: [':nogodno:'],
     url: `${emotesBasePath}/nogodno.webp`,
+    keywords: ['office'],
   },
   {
     tags: [':bonk:'],
     url: `${emotesBasePath}/bonk.webp`,
+    keywords: ['dog'],
   },
   {
-    tags: [':eyes:'],
+    tags: [':shakingeyes:', ':eyes:'],
     url: `${emotesBasePath}/eyes.webp`,
+    keywords: ['eyes'],
   },
   {
-    tags: [':cryingcat:'],
+    tags: [':cryingcat:', ':alexa:'],
     url: `${emotesBasePath}/cryingcat.webp`,
+    keywords: ['cat'],
   },
   {
     tags: [':triggered:'],
     url: `${emotesBasePath}/triggered.webp`,
+    keywords: ['anime'],
   },
   {
     tags: [':ayaya:'],
     url: `${emotesBasePath}/ayaya.webp`,
+    keywords: ['anime'],
   },
   {
     tags: [':chika:'],
     url: `${emotesBasePath}/chika.webp`,
+    keywords: ['anime'],
   },
 ];
