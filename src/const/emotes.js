@@ -7,6 +7,11 @@ export const EMOTES = [
     keywords: ['blob'],
   },
   {
+    tags: [':hyperblob:'],
+    url: `${emotesBasePath}/hyperblob.webp`,
+    keywords: ['blob', 'hyper'],
+  },
+  {
     tags: [':birbrave:'],
     url: `${emotesBasePath}/birbrave.gif`,
     keywords: ['animal'],
