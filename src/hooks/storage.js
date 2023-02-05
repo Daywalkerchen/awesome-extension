@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const useSyncStorage = (key, defaultValue) => {
-  const [rawValue, setRawValue] = useState(null);
+  const [value, setRawValue] = useState(null);
 
   useEffect(() => {
     const keys = {
@@ -35,5 +35,5 @@ export const useSyncStorage = (key, defaultValue) => {
     });
   };
 
-  return [rawValue, setValue];
+  return [value, setValue];
 };
