@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { render } from 'react-dom';
 
 import './popup.scss';
@@ -71,6 +71,7 @@ const Popup = ({ children }) => {
       {children}
     </div>
   );
+
   return (
     <>
       {renderTrigger()}
@@ -79,4 +80,4 @@ const Popup = ({ children }) => {
   );
 };
 
-export default Popup;
+export default memo(Popup);
