@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 import EmotePicker from '../emote-picker/EmotePicker';
 import SearchBar from '../search-bar/SearchBar';
+import Popup from './popup/Popup';
 
 const EmotePickerOnInput = ({ inputElem }) => {
   const [searchString, setSearchString] = useState('');
-
-  const src = chrome.runtime.getURL('icon-28.png');
 
   const onClick = (tag) => {
     inputElem.value += tag;
@@ -18,12 +15,7 @@ const EmotePickerOnInput = ({ inputElem }) => {
   };
 
   return (
-    <Popup
-      contentStyle={{ minHeight: '230px' }}
-      draggable="false"
-      className="input-emote-picker"
-      trigger={<img src={src} alt="better emotes" />}
-      position="top left">
+    <Popup>
       <SearchBar onSetSearchString={onSetSearchString} />
       <EmotePicker searchString={searchString} onClick={onClick} />
     </Popup>
