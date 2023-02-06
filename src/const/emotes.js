@@ -135,6 +135,12 @@ export const EMOTES = [
   {
     tags: [':pikachudance:'],
     url: `${emotesBasePath}/pikachudance.webp`,
+    keywords: ['pokemon'],
+  },
+  {
+    tags: [':headpat:'],
+    url: `${emotesBasePath}/headpat.webp`,
+    keywords: ['pokemon'],
   },
   {
     tags: [':weewoo:'],
@@ -235,5 +241,10 @@ export const EMOTES = [
     tags: [':chika:'],
     url: `${emotesBasePath}/chika.webp`,
     keywords: ['anime'],
+  },
+  {
+    tags: [':MERCH:', ':merch:'],
+    url: `${emotesBasePath}/merch.png`,
+    keywords: ['text'],
   },
 ];
