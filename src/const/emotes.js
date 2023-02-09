@@ -99,6 +99,10 @@ export const EMOTES = [
     url: `${emotesBasePath}/ooooo.webp`,
   },
   {
+    tags: [':hypeE:'],
+    url: `${emotesBasePath}/hypeE.webp`,
+  },
+  {
     tags: [':suss:'],
     url: `${emotesBasePath}/suss.gif`,
     keywords: ['animal'],
