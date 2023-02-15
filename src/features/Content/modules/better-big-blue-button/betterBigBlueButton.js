@@ -6,14 +6,21 @@ import seedrandom from 'seedrandom';
 export const componentName = 'BetterBigBlueButton';
 //endregion
 
+const randomizeArray = (rngGen, array) => {
+  return array
+    .map((value) => ({ value, sort: rngGen() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+};
+
 const findShuffledUserNames = (rngGen) => {
   const users = document.querySelectorAll(
     '[data-test="userListItem"] div div span span[position="bottom"], [data-test="userListItemCurrent"] div div span span[position="bottom"]'
   );
-  return [...users]
-    .map((it) => it.innerText.trim())
-    .sort()
-    .sort(() => 0.5 - rngGen());
+
+  const sorted = [...users].map((it) => it.innerText.trim()).sort();
+
+  return randomizeArray(rngGen, sorted);
 };
 
 const createDailySchedule = () => {
