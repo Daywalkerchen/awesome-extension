@@ -41,7 +41,9 @@ const Popup = (props) => {
   };
 
   const togglePopup = (event) => {
-    handleMouseMove(event);
+    const targetBounds = event.target.getBoundingClientRect();
+
+    setMousePos(targetBounds);
 
     event?.stopPropagation();
 
@@ -52,15 +54,15 @@ const Popup = (props) => {
     }
   };
 
-  const content = (
-    <div key="0" style={{ top: `${mousePos.y - 250}px`, left: `${mousePos.x}px` }} className="input-emote-picker popup-overlay popup">
-      {props.children}
+  const overlay = (
+    <div key="0" style={{ top: `${mousePos.y - 258}px`, left: `${mousePos.x}px` }} className="popup">
+      <div className="popup__content">{props.children}</div>
     </div>
   );
 
   return (
     <ErrorBoundary>
-      {isOpen && content}
+      {isOpen && overlay}
       <img src={src} alt="better emotes" key="T" ref={triggerRef} aria-describedby={popupId.current} onClick={togglePopup} />
     </ErrorBoundary>
   );

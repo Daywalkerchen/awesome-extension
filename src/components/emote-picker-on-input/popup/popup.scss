@@ -1,39 +1,15 @@
-.popup-content {
-  margin: auto;
-  background: rgb(255, 255, 255);
-  padding: 5px;
-  border: 1px solid #d7d7d7;
-}
+$popup-border-radius: 4px;
 
-.popup-arrow {
-  color: rgb(255, 255, 255);
-}
-
-[role="tooltip"].popup-content {
-  width: 200px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
-  border-radius: 5px;
-}
-
-.popup-overlay {
+.popup {
   background: hsla(0, 0%, 100%, 0.98);
   position: fixed;
   width: 365px;
-}
+  border-radius: $popup-border-radius;
+  box-shadow: #282c34;
 
-[data-popup="tooltip"].popup-overlay {
-  background: transparent;
-}
-
-.popup-arrow {
-  filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.16));
-  color: #ffffff;
-  stroke-width: 2px;
-  stroke: #d7d7d7;
-  stroke-dasharray: 30px;
-  stroke-dashoffset: -54px;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  &__content {
+    border-radius: $popup-border-radius;
+    padding: 0.5rem;
+    box-shadow: 0 0 2px 0 rgb(47 52 61 / 8%), 0 0 12px 0 rgb(47 52 61 / 12%);
+  }
 }
