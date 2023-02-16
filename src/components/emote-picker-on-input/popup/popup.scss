@@ -1,13 +1,14 @@
 .popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
-  width: 50%;
   padding: 5px;
   border: 1px solid #d7d7d7;
 }
+
 .popup-arrow {
   color: rgb(255, 255, 255);
 }
+
 [role="tooltip"].popup-content {
   width: 200px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
@@ -15,15 +16,18 @@
 }
 
 .popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: hsla(0, 0%, 100%, 0.98);
+  position: absolute;
+  width: 365px;
 }
+
 [data-popup="tooltip"].popup-overlay {
   background: transparent;
 }
 
 .popup-arrow {
   filter: drop-shadow(0 -3px 3px rgba(0, 0, 0, 0.16));
-  color: #fff;
+  color: #ffffff;
   stroke-width: 2px;
   stroke: #d7d7d7;
   stroke-dasharray: 30px;

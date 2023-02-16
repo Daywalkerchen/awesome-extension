@@ -2,8 +2,9 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 import { render } from 'react-dom';
 
 import './popup.scss';
+import ErrorBoundary from '../../error-boundary/ErrorBoundary';
 
-const Popup = ({ children }) => {
+const Popup = (props) => {
   let popupIdCounter = 0;
   const open = false;
 
@@ -13,6 +14,20 @@ const Popup = ({ children }) => {
   const triggerRef = useRef(null);
   const popupId = useRef(`popup-${++popupIdCounter}`);
   const trigger = <img src={src} alt="better emotes" />;
+
+  const [mousePos, setMousePos] = useState({});
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setMousePos({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   let PopupRoot;
 
@@ -67,17 +82,17 @@ const Popup = ({ children }) => {
   };
 
   const content = (
-    <div key="0" className="input-emote-picker popup-overlay popup">
-      {children}
+    <div key="0" style={{ top: `${mousePos.y - 250}px`, left: `${mousePos.x}px` }} className="input-emote-picker popup-overlay popup">
+      {props.children}
     </div>
   );
 
-  return (
-    <>
-      {renderTrigger()}
-      {isOpen && render(content, window.document.querySelector('#popup-root'))}
-    </>
-  );
+  useEffect(() => {
+    renderTrigger();
+    isOpen && render(content, window.document.querySelector('#popup-root'));
+  }, []);
+
+  return <div></div>;
 };
 
 export default memo(Popup);
