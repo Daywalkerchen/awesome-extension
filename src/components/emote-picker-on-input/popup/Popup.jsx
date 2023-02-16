@@ -1,33 +1,24 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
-import { render } from 'react-dom';
+// region Imports
+import React, { memo, useRef, useState } from 'react';
 
 import './popup.scss';
 import ErrorBoundary from '../../error-boundary/ErrorBoundary';
+// endregion
 
 const Popup = (props) => {
   let popupIdCounter = 0;
-  const open = false;
 
   const src = chrome.runtime.getURL('icon-28.png');
 
-  const [isOpen, setIsOpen] = useState(open);
-  const triggerRef = useRef(null);
-  const popupId = useRef(`popup-${++popupIdCounter}`);
-  const trigger = <img src={src} alt="better emotes" />;
-
+  const [isOpen, setIsOpen] = useState(false);
   const [mousePos, setMousePos] = useState({});
 
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
+  const triggerRef = useRef(null);
+  const popupId = useRef(`popup-${++popupIdCounter}`);
 
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+  const handleMouseMove = (event) => {
+    setMousePos({ x: event.clientX, y: event.clientY });
+  };
 
   let PopupRoot;
 
@@ -49,17 +40,9 @@ const Popup = (props) => {
     setIsOpen(false);
   };
 
-  // const getRootPopup = () => {
-  //   let PopupRoot;
-  //
-  //   PopupRoot = document.createElement('div');
-  //   PopupRoot.setAttribute('id', 'popup-root');
-  //   document.body.appendChild(PopupRoot);
-  //
-  //   return PopupRoot;
-  // };
-
   const togglePopup = (event) => {
+    handleMouseMove(event);
+
     event?.stopPropagation();
 
     if (!isOpen) {
@@ -69,30 +52,18 @@ const Popup = (props) => {
     }
   };
 
-  const renderTrigger = () => {
-    const triggerProps = {
-      key: 'T',
-      ref: triggerRef,
-      'aria-describedby': popupId.current,
-    };
-
-    triggerProps.onClick = togglePopup;
-
-    return !!trigger && React.cloneElement(trigger, triggerProps);
-  };
-
   const content = (
     <div key="0" style={{ top: `${mousePos.y - 250}px`, left: `${mousePos.x}px` }} className="input-emote-picker popup-overlay popup">
       {props.children}
     </div>
   );
 
-  useEffect(() => {
-    renderTrigger();
-    isOpen && render(content, window.document.querySelector('#popup-root'));
-  }, []);
-
-  return <div></div>;
+  return (
+    <ErrorBoundary>
+      {isOpen && content}
+      <img src={src} alt="better emotes" key="T" ref={triggerRef} aria-describedby={popupId.current} onClick={togglePopup} />
+    </ErrorBoundary>
+  );
 };
 
 export default memo(Popup);
