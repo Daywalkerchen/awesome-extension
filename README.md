@@ -1,7 +1,4 @@
 <div align="center">
-    <h1>
-        <img src="src/assets/img/icon-128.png" width="158" alt="logo"/>
-    </h1>
     <h2>Awesome Extension</h2>
     <div>
         <img src="https://img.shields.io/github/languages/code-size/Daywalkerchen/awesome-extension?style=for-the-badge" alt="" />
