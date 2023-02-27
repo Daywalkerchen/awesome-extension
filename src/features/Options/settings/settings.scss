@@ -6,6 +6,8 @@
     //position: absolute;
     //bottom: 0;
     //right: 5rem;
+    display: flex;
+    gap: 0.5em;
 
     .button {
       margin: 16px 0;
@@ -33,6 +35,10 @@
         font-size: 1.125rem;
         padding: 1rem 2rem;
       }
+    }
+
+    .upload-state {
+      margin-left: 1em;
     }
   }
 

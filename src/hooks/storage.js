@@ -1,13 +1,27 @@
 import { useEffect, useState } from 'react';
 
+export const useLocalStorage = (key, defaultValue) => {
+  return useStorage(chrome.storage.local, key, defaultValue);
+};
+
 export const useSyncStorage = (key, defaultValue) => {
+  return useStorage(chrome.storage.sync, key, defaultValue);
+};
+
+/**
+ * @param {StorageArea} storage
+ * @param {string} key
+ * @param {any} defaultValue
+ * @returns {[any, (element: any) => void]}
+ */
+const useStorage = (storageArea, key, defaultValue) => {
   const [value, setRawValue] = useState(null);
 
   useEffect(() => {
     const keys = {
       [key]: defaultValue,
     };
-    chrome.storage.sync.get(keys, (items) => {
+    storageArea.get(keys, (items) => {
       setRawValue(items[key]);
     });
 
@@ -28,8 +42,8 @@ export const useSyncStorage = (key, defaultValue) => {
   }, []);
 
   const setValue = (newValue) => {
-    chrome.storage.sync.set({ [key]: newValue }, () => {
-      console.log('Set', key, 'to', newValue);
+    storageArea.set({ [key]: newValue }, () => {
+      console.info('Set', key, 'to', newValue);
       // state will be changed by the event listener
       // this way we do not call setRawValue twice
     });
