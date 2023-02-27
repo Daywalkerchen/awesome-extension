@@ -1,0 +1,13 @@
+.groupBlock {
+  margin: 0.5em;
+
+  .groupHeadline {
+    margin: 0.5em 1em;
+  }
+
+  .groupContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
