@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import CheckBox from '../../../components/checkbox/CheckBox';
 import { useSyncStorage, useLocalStorage } from '../../../hooks/storage';
 import './settings.scss';
 
 const Settings = () => {
   const [enableAlternates, setEnableAlternates] = useSyncStorage('enableAlternates', false);
+  const [enableLinkNewtab, setEnableLinkNewtab] = useSyncStorage('enableLinkNewtab', false);
   const [replacedPlaceholder, setReplacedPlaceholder] = useSyncStorage('replacedPlaceholder', 0);
   const [_, setLinkGroups] = useLocalStorage('linkGroups', []);
   const [uploadState, setUploadState] = useState('');
@@ -43,8 +45,18 @@ const Settings = () => {
 
   return (
     <div className="settings">
-      <input id="enable-alternatives" className="checkbox" type="checkbox" checked={!!enableAlternates} onChange={handleChange} />
-      <label htmlFor="enable-alternatives">Enable alternate replacement tags</label>
+      <CheckBox
+        id="enable-alternatives"
+        label="Enable alternate replacement tags"
+        value={!!enableAlternates}
+        onChange={(newValue) => setEnableAlternates(newValue)}
+      />
+      <CheckBox
+        id="enable-link-newtab"
+        label="Show link collection on newtab"
+        value={!!enableLinkNewtab}
+        onChange={(newValue) => setEnableLinkNewtab(newValue)}
+      />
       <div className="actions">
         <button className="button" onClick={resetCounter}>
           Reset Count ({replacedPlaceholder})
