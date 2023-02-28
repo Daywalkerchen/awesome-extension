@@ -34,9 +34,9 @@ const useStorage = (storageArea, key, defaultValue) => {
       const newValue = change.newValue ?? defaultValue;
       setRawValue(newValue);
     };
-    chrome.storage.onChanged.addListener(listener);
+    storageArea.onChanged.addListener(listener);
     const cleanup = () => {
-      chrome.storage.onChanged.removeListener(listener);
+      storageArea.onChanged.removeListener(listener);
     };
     return cleanup;
   }, []);
