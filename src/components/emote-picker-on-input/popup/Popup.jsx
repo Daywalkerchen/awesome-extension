@@ -1,5 +1,5 @@
 // region Imports
-import React, { memo, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
 import './popup.scss';
 import ErrorBoundary from '../../error-boundary/ErrorBoundary';
@@ -15,6 +15,27 @@ const Popup = (props) => {
 
   const triggerRef = useRef(null);
   const popupId = useRef(`popup-${++popupIdCounter}`);
+
+  const useOutsideAlerter = (ref) => {
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          event?.stopPropagation();
+
+          setIsOpen(false);
+        }
+      };
+
+      document.addEventListener('mousedown', handleClickOutside);
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
 
   const handleMouseMove = (event) => {
     setMousePos({ x: event.clientX, y: event.clientY });
@@ -55,7 +76,7 @@ const Popup = (props) => {
   };
 
   const overlay = (
-    <div key="0" style={{ top: `${mousePos.y - 258}px`, left: `${mousePos.x}px` }} className="popup">
+    <div ref={wrapperRef} key="0" style={{ top: `${mousePos.y - 258}px`, left: `${mousePos.x}px` }} className="popup">
       <div className="popup__content">{props.children}</div>
     </div>
   );
