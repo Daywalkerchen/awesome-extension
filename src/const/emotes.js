@@ -47,6 +47,11 @@ export const EMOTES = [
     keywords: ['animal'],
   },
   {
+    tags: [':sabercat:'],
+    url: `${emotesBasePath}/sabercat.webp`,
+    keywords: ['animal', 'cat', 'saber'],
+  },
+  {
     tags: [':vibebunny:', ':vibe:'],
     url: `${emotesBasePath}/vibebunny.gif`,
     keywords: ['animal'],
