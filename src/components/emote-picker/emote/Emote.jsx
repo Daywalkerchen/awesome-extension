@@ -7,7 +7,7 @@ const Emote = ({ emote, onClick }) => {
   const tag = emote.tags[0];
 
   return (
-    <div onClick={() => onClick(tag)} className="emote">
+    <div onClick={() => onClick(emote)} className="emote">
       <img src={emote.url} title={tag} alt={tag} />
     </div>
   );
