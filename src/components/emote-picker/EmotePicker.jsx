@@ -17,13 +17,14 @@ const searchInArray = (arrayOfStrings, lowerSearch) => {
 };
 
 /**
+ * @param {array} list
  * @param {string | undefined} searchString
  * @returns {({keywords: [string], url: string, tags: string[]}|{keywords: [string], url: string, tags: [string]}|{keywords: [string], url: string, tags: [string]}|{keywords: [string], url: string, tags: [string]}|{keywords: [string], url: string, tags: [string]})[]}
  */
-const searchEmotes = (searchString) => {
+const searchEmotes = (list, searchString) => {
   const lowerSearch = searchString?.toLowerCase();
 
-  return EMOTES.filter((emote) => {
+  return list.filter((emote) => {
     if (!lowerSearch) {
       return true;
     }
@@ -32,8 +33,18 @@ const searchEmotes = (searchString) => {
   });
 };
 
-const EmotePicker = ({ searchString, onClick }) => {
-  const filteredList = searchEmotes(searchString);
+const EmotePicker = ({ searchString, onClick, replaceList }) => {
+  let replacedEMOTESList;
+
+  if (replaceList && !replaceList.length < 0) {
+    return null;
+  }
+
+  if (replaceList) {
+    replacedEMOTESList = replaceList.map((ele) => EMOTES.find((x) => x.tags.includes(ele)));
+  }
+
+  const filteredList = searchEmotes(replacedEMOTESList || EMOTES, searchString);
 
   return (
     <div className="emote-picker">
