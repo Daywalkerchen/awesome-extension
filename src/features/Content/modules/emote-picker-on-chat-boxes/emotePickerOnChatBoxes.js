@@ -19,10 +19,12 @@ export const initEmotePickerOnChatBoxes = () => {
   }
 
   if (document.URL.startsWith('https://rocket.')) {
-    const rcMessageBoxes = document.getElementsByClassName('rc-message-box__container');
+    const rcMessageBoxes = document.querySelectorAll(
+      'div.rcx-box.rcx-box--full.rcx-button-group--small.rcx-button-group--align-start.rcx-button-group[role=toolbar]'
+    );
 
-    if (!rcMessageBoxes.length) {
-      console.log(`[${componentName}] InputEmotePicker rc-message-box__container not found`);
+    if (!rcMessageBoxes || !rcMessageBoxes.length) {
+      console.log(`[${componentName}] InputEmotePicker rcx-button-group not found`);
       return;
     }
 

@@ -37,10 +37,6 @@ const Popup = (props) => {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
-  const handleMouseMove = (event) => {
-    setMousePos({ x: event.clientX, y: event.clientY });
-  };
-
   let PopupRoot;
 
   PopupRoot = document.createElement('div');
@@ -76,7 +72,7 @@ const Popup = (props) => {
   };
 
   const overlay = (
-    <div ref={wrapperRef} key="0" style={{ top: `${mousePos.y - 258}px`, left: `${mousePos.x}px` }} className="popup">
+    <div ref={wrapperRef} key="0" style={{ top: `${mousePos.y - 340}px`, left: `${mousePos.x}px` }} className="popup">
       <div className="popup__content">{props.children}</div>
     </div>
   );
