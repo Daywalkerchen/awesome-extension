@@ -28,7 +28,7 @@
     "@babel/core": "^7.21.8",
     "@babel/eslint-parser": "^7.21.8",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-env": "^7.22.7",
     "@babel/preset-react": "^7.18.6",
     "@types/chrome": "^0.0.225",
     "@types/react": "17.0.2",
