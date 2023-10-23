@@ -51,7 +51,7 @@
     "lint-staged": "^14.0.1",
     "prettier": "2.8.8",
     "reactjs-popup": "^2.0.5",
-    "sass": "^1.62.1",
+    "sass": "^1.69.4",
     "sass-loader": "^13.3.2",
     "seedrandom": "^3.0.5",
     "source-map-loader": "^4.0.1",
